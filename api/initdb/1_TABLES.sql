@@ -7,3 +7,16 @@ create table users
     last_name TEXT not null,
     age int null
 );
+
+create table cvs
+(
+    id bigint auto_increment,
+    constraint cvs_pk
+        primary key (id),
+    user TEXT not null,
+    education TEXT not null,
+    experience TEXT not null,
+    skills TEXT not null,
+    languages TEXT not null,
+    activities TEXT not null
+);

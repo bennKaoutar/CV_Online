@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { defaultsDeep } from 'lodash';
+import {Router} from '@angular/router';
+import {CvService} from '../../services/cv.service';
 
 @Component({
   selector: 'app-cv-template',
@@ -7,12 +10,26 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./cv-template.component.css']
 })
 export class CvTemplateComponent implements OnInit {
+  myuser: any;
 
-  constructor() { }
+  constructor(private cvService: CvService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm) {
+  onSubmit(ngForm: NgForm) {
+    console.log(ngForm);
+    const cv = defaultsDeep({
+      id: null,
+      user: ngForm.form.value.user,
+      education: ngForm.form.value.education,
+      experience: ngForm.form.value.experience,
+      skills: ngForm.form.value.skills,
+      languages: ngForm.form.value.languages,
+      activities: ngForm.form.value.activities
+    });
+
+    this.cvService.addCv(cv).subscribe(cv => console.log(cv));
+    this.router.navigateByUrl('/')
   }
 }
