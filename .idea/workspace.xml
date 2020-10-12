@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e1e2d3c2-2402-408b-97e3-d96ebf9da527" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/api/demo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp-standalone/demo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp-standalone/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp-standalone/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp-standalone/src/main/java/io/takima/demo/User.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webapp-standalone/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp-standalone/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ikX6WaZYsLoTEnar7WoRrNdn8r" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/front" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/front/node_modules/protractor" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.121839084" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="ts.external.directory.path" value="D:\coursjava - Copie\formation-spring-boot\webapp-front-and-back\front\node_modules\typescript\lib" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="1_TABLES.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/api/initdb/1_TABLES.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="1e781f4e-48d0-404a-8f5a-e9c3da46ab4f" namespace="schema/&quot;defaultdb&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2_DEFAULT_ENTRIES.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/api/initdb/2_DEFAULT_ENTRIES.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="1e781f4e-48d0-404a-8f5a-e9c3da46ab4f" namespace="schema/&quot;defaultdb&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (epf-live-coding)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/front/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/front/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application (front)" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.takima.demo.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Angular CLI Server (front)" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/front/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.2_DEFAULT_ENTRIES.sql" />
+        <item itemvalue="Database Script.1_TABLES.sql" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBeansView">
+    <option name="beanDetailsProportion" value="0.3" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e1e2d3c2-2402-408b-97e3-d96ebf9da527" name="Default Changelist" comment="" />
+      <created>1602452389217</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602452389217</updated>
+      <workItem from="1602452390631" duration="7067000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="409" y="119" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602491970100">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="409" y="119" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602491970100" />
+    <state x="601" y="221" width="776" height="660" key="FileChooserDialogImpl" timestamp="1602492428845">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="601" y="221" width="776" height="660" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492428845" />
+    <state width="1877" height="292" key="GridCell.Tab.0.bottom" timestamp="1602492585808">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492585808" />
+    <state width="1877" height="292" key="GridCell.Tab.0.center" timestamp="1602492585808">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492585808" />
+    <state width="1877" height="292" key="GridCell.Tab.0.left" timestamp="1602492585807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492585807" />
+    <state width="1877" height="292" key="GridCell.Tab.0.right" timestamp="1602492585808">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492585808" />
+    <state width="1877" height="292" key="GridCell.Tab.1.bottom" timestamp="1602492585809">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492585809" />
+    <state width="1877" height="292" key="GridCell.Tab.1.center" timestamp="1602492585809">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492585809" />
+    <state width="1877" height="292" key="GridCell.Tab.1.left" timestamp="1602492585808">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492585808" />
+    <state width="1877" height="292" key="GridCell.Tab.1.right" timestamp="1602492585809">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492585809" />
+    <state x="302" y="94" width="1178" height="851" key="SettingsEditor" timestamp="1602492262900">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="302" y="94" width="1178" height="851" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1602492262900" />
+  </component>
+</project>
