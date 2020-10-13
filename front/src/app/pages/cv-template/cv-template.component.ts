@@ -11,6 +11,11 @@ import {CvService} from '../../services/cv.service';
 })
 export class CvTemplateComponent implements OnInit {
   myuser: any;
+  myeducation: any;
+  myexperience: any;
+  myskills: any;
+  mylanguages: any;
+  myactivities: any;
 
   constructor(private cvService: CvService, private router: Router) { }
 
