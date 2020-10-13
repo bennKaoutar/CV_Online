@@ -1,0 +1,65 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	<h2>You Write the name, We give you informations!</h2>
+		<div class="row">
+			   <div id="custom-search-input">
+								<div class="input-group col-md-12">
+									<input type="text" (keydown)="search($event)" class="search-query form-control" placeholder="Search" />
+									<span class="input-group-btn">
+										<button class="btn btn-danger" type="button">
+											<span class=" glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+								</div>
+								<div **ngFor="let user of users">
+									<h4>{{user.firstName}}</h4>
+									<p>{{user.lastName}} <br/>
+										{{user.age}}
+									</p>
+								</div>
+								<div **ngIf="users.length < 1">
+									<hr>
+									<p style="color: brown;"> please make yourself clear</p>
+								</div>
+				</div>
+		</div>
+</div>
+
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In </label>
+		<input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">OR Sign Up!</label>
+		<div class="login-form">
+			<form
+			[formGroup]="loginForm"
+            (ngSubmit)="onSubmit()"
+			>
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Username or Email</label>
+					<input id="user" [formControl]="email" type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" [formControl]="password" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<input type="submit"  class="button" value="Sign In">
+				</div>
+				<div class="hr"></div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign Up">
+				</div>
+			</div>
+		</form> 
+	</div>
+	</div>
+</div>

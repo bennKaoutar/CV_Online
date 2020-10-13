@@ -23,21 +23,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1e2d3c2-2402-408b-97e3-d96ebf9da527" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api/demo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webapp-standalone/demo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webapp-standalone/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp-standalone/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webapp-standalone/src/main/java/io/takima/demo/User.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webapp-standalone/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../webapp-standalone/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/api/demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/styles.css" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -73,18 +76,19 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="ts.external.directory.path" value="D:\coursjava - Copie\formation-spring-boot\webapp-front-and-back\front\node_modules\typescript\lib" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.Application">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="1_TABLES.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/api/initdb/1_TABLES.sql" />
       <script-mode>FILE</script-mode>
@@ -126,16 +130,13 @@
       <envs />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Database Script.2_DEFAULT_ENTRIES.sql" />
-        <item itemvalue="Database Script.1_TABLES.sql" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringBeansView">
     <option name="beanDetailsProportion" value="0.3" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -145,6 +146,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602452389217</updated>
       <workItem from="1602452390631" duration="7067000" />
+      <workItem from="1602600888942" duration="133000" />
     </task>
     <servers />
   </component>
@@ -156,7 +158,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
