@@ -16,6 +16,8 @@ export class CvTemplateComponent implements OnInit {
   myskills: any;
   mylanguages: any;
   myactivities: any;
+  textAreasList:any = [];
+  test: any;
 
   constructor(private cvService: CvService, private router: Router) { }
 
@@ -36,5 +38,18 @@ export class CvTemplateComponent implements OnInit {
 
     this.cvService.addCv(cv).subscribe(cv => console.log(cv));
     this.router.navigateByUrl('/')
+  }
+
+  addTextarea(){
+    this.textAreasList.push('');
+  }
+
+
+  removeTextArea(index){
+    this.textAreasList.splice(index, 1);
+  }
+
+  trackByFn(index: any){
+    return index;
   }
 }

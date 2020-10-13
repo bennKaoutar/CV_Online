@@ -1,60 +1,69 @@
 <h1>Default template :</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-2">
-            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-                <div class="form-group">
-                    <label for="user">
-                        Name
-                    </label>
-                    <input type="text" id="user" class="form-control" name="user" required [(ngModel)]="myuser" ngModel>
+
+<div class="row template">
+    <div class="col-sm-5 col-sm-offset-2">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="user">
+                    Name
+                </label>
+                <input type="text" id="user" class="form-control" name="user" required [(ngModel)]="myuser" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="education">
+                    Education and Qualification
+                </label>
+                <textarea type="text" id="education" class="form-control" name="education" [(ngModel)]="myeducation" ngModel></textarea>
+
+                <div *ngFor="let textarea of textAreasList; let textarea_index= index; trackBy:trackByFn">
+                    <textarea type="text" name="{{textarea}}" [(ngModel)]="textAreasList[textarea_index]" [ngModelOptions]="{standalone: true}" ngModel></textarea>
+                    <button class ="btn btn-warning" type="button" (click)="removeTextArea(textarea_index)">Remove</button>
                 </div>
-                <div class="form-group">
-                    <label for="education">
-                        Education and Qualification
-                    </label>
-                    <textarea type="text" id="education" class="form-control" name="education" [(ngModel)]="myeducation" ngModel></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="experience">
-                        Work Experience
-                    </label>
-                    <textarea type="text" id="experience" class="form-control" name="experience" [(ngModel)]="myexperience" ngModel></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="skills">
-                        Skills
-                    </label>
-                    <textarea type="text" id="skills" class="form-control" name="skills" [(ngModel)]="myskills" ngModel></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="languages">
-                        Languages
-                    </label>
-                    <textarea type="text" id="languages" class="form-control" name="languages" [(ngModel)]="mylanguages" ngModel></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="activities">
-                        Activities
-                    </label>
-                    <textarea type="text" id="activities" class="form-control" name="activities" [(ngModel)]="myactivities" ngModel></textarea>
-                </div>
-                <button class="btn btn-primary" type="submit">Ajouter</button>
-            </form>
+
+                <button class ="btn btn-primary" type="button" (click)="addTextarea()"> Add </button>
+            </div>
+            <div class="form-group">
+                <label for="experience">
+                    Work Experience
+                </label>
+                <textarea type="text" id="experience" class="form-control" name="experience" [(ngModel)]="myexperience" ngModel></textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills">
+                    Skills
+                </label>
+                <textarea type="text" id="skills" class="form-control" name="skills" [(ngModel)]="myskills" ngModel></textarea>
+            </div>
+            <div class="form-group">
+                <label for="languages">
+                    Languages
+                </label>
+                <textarea type="text" id="languages" class="form-control" name="languages" [(ngModel)]="mylanguages" ngModel></textarea>
+            </div>
+            <div class="form-group">
+                <label for="activities">
+                    Activities
+                </label>
+                <textarea type="text" id="activities" class="form-control" name="activities" [(ngModel)]="myactivities" ngModel></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Ajouter</button>
+        </form>
+    </div>
+    <div class="col-sm-6 col-sm-offset-2 viewCv">
+        <h4>Name</h4>
+        <p>{{myuser}}</p>
+        <h4>Education and Qualification</h4>
+        <p>{{myeducation}}</p>
+        <div *ngFor="let textarea of textAreasList">
+            <p>{{textarea}}</p>
         </div>
-        <div class="col-sm-6 col-sm-offset-2">
-            <h4>Name</h4>
-            <p>{{myuser}}</p>
-            <h4>Education and Qualification</h4>
-            <p>{{myeducation}}</p>
-            <h4>Work Experience</h4>
-            <p>{{myexperience}}</p>
-            <h4>Skills</h4>
-            <p>{{myskills}}</p>
-            <h4>Languages</h4>
-            <p>{{mylanguages}}</p>
-            <h4>Activities</h4>
-            <p>{{myactivities}}</p>
-        </div>
+        <h4>Work Experience</h4>
+        <p>{{myexperience}}</p>
+        <h4>Skills</h4>
+        <p>{{myskills}}</p>
+        <h4>Languages</h4>
+        <p>{{mylanguages}}</p>
+        <h4>Activities</h4>
+        <p>{{myactivities}}</p>
     </div>
 </div>
