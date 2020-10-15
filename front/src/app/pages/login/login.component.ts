@@ -18,14 +18,27 @@ import { LoginUser } from 'src/app/models/loginUser';
 })
 export class LoginComponent implements OnInit {
   users;
-  email:string="";
-  
   //StartAt=new Subject();
   //endAt=new Subject();
 
- 
+  loginForm: FormGroup;
+  /*email: AbstractControl;
+  password: AbstractControl;
+  loginUser:LoginUser;*/
 
-  constructor(private router:Router ){}
+  constructor(
+    private router:Router,
+    private readonly formBuilder: FormBuilder,private serach:SearchBarService) {
+    this.loginForm = this.formBuilder.group({
+      email:[''],
+      password:['']
+      /*email: [null, [Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(8)]]*/
+    });
+
+    /*this.email = this.loginForm.controls.email;
+    this.password = this.loginForm.controls.password;*/
+  }
   
 
   ngOnInit(): void {
@@ -38,8 +51,17 @@ export class LoginComponent implements OnInit {
     this.endAt.next(q+"\uf8ff")
   }*/
   onSubmit() {
-    
-    console.log(this.email);
+    /*this.loginUser = {
+      email: f.value.email,
+      password: f.value.password
+
+    };*/
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.getRawValue());
+  } else {
+      console.log('There is a problem with the form');
+  }
+   
     this.router.navigateByUrl('/');
 
 }
