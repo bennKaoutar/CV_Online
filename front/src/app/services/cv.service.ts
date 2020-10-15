@@ -15,7 +15,11 @@ export class CvService {
         this.url = environment.url;
     }
 
+    getCvs() : Observable<Cv[]>{
+        return this.http.get<Cv[]>(`${this.url}/cvs`).pipe(timeout(10000));
+    }
+
     addCv(cv: Cv): Observable<Cv> {
-        return this.http.post<any>(`${this.url}/cv`, cv).pipe(timeout(10000));
+        return this.http.post<any>(`${this.url}/cvs`, cv).pipe(timeout(10000));
     }
 }

@@ -1,5 +1,4 @@
 import { defaultsDeep } from 'lodash';
-import {User} from './user.model';
 
 export class Cv {
     id: number;
