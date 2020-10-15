@@ -1,5 +1,7 @@
-package io.takima.demo;
+package io.takima.demo.controller;
 
+import io.takima.demo.dao.UserDAO;
+import io.takima.demo.model.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
