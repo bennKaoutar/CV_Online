@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { CvTemplateComponent } from './pages/cv-template/cv-template.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListUsersComponent,
     AddUserComponent,
-    CvTemplateComponent
+    CvTemplateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
