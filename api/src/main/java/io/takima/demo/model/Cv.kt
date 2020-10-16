@@ -11,6 +11,10 @@ data class Cv(
         @Column(name = "experience") var experience: String?,
         @Column(name = "skills") var skills: String?,
         @Column(name = "languages") var languages: String?,
-        @Column(name = "activities") var activities: String?) {
-    constructor() : this(null, null, null, null, null, null, null)
+        @Column(name = "activities") var activities: String?,
+        @Column(name= "fb") var git:String?,
+        @Column(name= "linkedin") var linkedin:String?,
+        @Column(name= "fb") var fb:String?)
+{
+    constructor() : this(null, null, null, null, null, null, null, null,null,null)
 }

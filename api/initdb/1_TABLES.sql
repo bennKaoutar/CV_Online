@@ -18,5 +18,8 @@ create table cvs
     experience TEXT not null,
     skills TEXT not null,
     languages TEXT not null,
-    activities TEXT not null
+    activities TEXT not null,
+    git TEXT,
+    linkedin TEXT,
+    fb TEXT
 );

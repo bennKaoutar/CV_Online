@@ -5,7 +5,7 @@ import io.takima.demo.model.Cv;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/cv")
+@RequestMapping("/cvs")
 @CrossOrigin
 public class CvController {
 
@@ -14,15 +14,6 @@ public class CvController {
     public CvController(CvDAO cvDAO) {
         this.cvDAO = cvDAO;
     }
-
-    /*@GetMapping()
-    public List<User> getUsers() {
-        Iterable<User> it = this.userDAO.findAll();
-        List<User> users = new ArrayList<>();
-        it.forEach(e -> users.add(e));
-
-        return users;
-    }*/
 
     @PostMapping()
     public Cv addCv(@RequestBody Cv cv) {

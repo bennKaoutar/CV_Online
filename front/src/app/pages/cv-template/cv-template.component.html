@@ -2,7 +2,7 @@
 
 <div class="row template">
     <div class="col-sm-5 col-sm-offset-2">
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <form (ngSubmit)="onSubmit(f)" (ngSubmit)="onSubmit(f)" on #f="ngForm">
             <div class="form-group">
                 <label for="user">
                     Name
@@ -46,10 +46,39 @@
                 </label>
                 <textarea type="text" id="activities" class="form-control" name="activities" [(ngModel)]="myactivities" ngModel></textarea>
             </div>
+            <div class="form-group">
+                <label for="activities">
+                    Link to your Facebook
+                </label>
+                <input type="text" id="fb" class="form-control" name="fb" [(ngModel)]="fb" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="activities">
+                    Link to your GitHub
+                </label>
+                <input type="text" id="git" class="form-control" name="git" [(ngModel)]="git" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="activities">
+                    Link to your Linkedin
+                </label>
+                <input type="text" id="in" class="form-control" name="in" [(ngModel)]="in" ngModel>
+            </div>
+            
             <button class="btn btn-primary" type="submit">Ajouter</button>
         </form>
     </div>
+    
     <div class="col-sm-6 col-sm-offset-2 viewCv">
+        
+        <div class="col-md-12">
+            <ul class="social-network social-circle">
+                <li><a href="{{fb}}" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="{{git}}" class="icoGithub" title="GitHub"><i class="fa fa-github"></i></a></li>
+                <li><a href="{{in}}" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            </ul>				
+        </div>
+
         <h4>Name</h4>
         <p>{{myuser}}</p>
         <h4>Education and Qualification</h4>
