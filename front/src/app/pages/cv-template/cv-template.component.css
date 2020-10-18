@@ -6,7 +6,6 @@
     border: 1px solid black;
 }
 
-
 /*=========================
   Icons
  ================= */
@@ -28,30 +27,14 @@ ul.social-network li {
 }
 
 /* footer social icons */
-.social-network a.icoRss:hover {
-	background-color: #F56505;
-}
 .social-network a.icoFacebook:hover {
 	background-color:#3B5998;
 }
 .social-network a.icoGithub:hover {
 	background-color:#33ccff;
 }
-.social-network a.icoGoogle:hover {
-	background-color:#BD3518;
-}
-.social-network a.icoVimeo:hover {
-	background-color:#0590B8;
-}
 .social-network a.icoLinkedin:hover {
 	background-color:#007bb7;
-}
-.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
-	color:#fff;
-}
-a.socialIcon:hover, .socialHoverClass {
-	color:#44BCDD;
 }
 
 .social-circle li a {
@@ -83,6 +66,7 @@ a.socialIcon:hover, .socialHoverClass {
 	-ms-transition: all 0.2s;
 	transition: all 0.2s;
 }
+
 .social-circle i {
 	color: #fff;
 	-webkit-transition: all 0.8s;

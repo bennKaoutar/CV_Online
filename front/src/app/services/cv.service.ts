@@ -16,6 +16,6 @@ export class CvService {
     }
 
     addCv(cv: Cv): Observable<Cv> {
-        return this.http.post<any>(`${this.url}/cv`, cv).pipe(timeout(10000));
+        return this.http.post<any>(`${this.url}/cvs`, cv).pipe(timeout(10000));
     }
 }

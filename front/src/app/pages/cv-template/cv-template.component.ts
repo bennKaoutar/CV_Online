@@ -10,15 +10,16 @@ import {CvService} from '../../services/cv.service';
   styleUrls: ['./cv-template.component.css']
 })
 export class CvTemplateComponent implements OnInit {
-  fb:any;
-  git:any;
-  in:any;
+
   myuser: any;
   myeducation: any;
   myexperience: any;
   myskills: any;
   mylanguages: any;
   myactivities: any;
+  fb:any;
+  git:any;
+  in:any;
   textAreasList:any = [];
   test: any;
 
@@ -31,15 +32,15 @@ export class CvTemplateComponent implements OnInit {
     console.log(ngForm);
     const cv = defaultsDeep({
       id: null,
-      fb:ngForm.form.value.fb,
-      git:ngForm.form.value.git,
-      in:ngForm.form.value.in,
       user: ngForm.form.value.user,
       education: ngForm.form.value.education,
       experience: ngForm.form.value.experience,
       skills: ngForm.form.value.skills,
       languages: ngForm.form.value.languages,
-      activities: ngForm.form.value.activities
+      activities: ngForm.form.value.activities,
+      fb: ngForm.form.value.fb,
+      git: ngForm.form.value.git,
+      in: ngForm.form.value.in
     });
 
     this.cvService.addCv(cv).subscribe(cv => console.log(cv));
