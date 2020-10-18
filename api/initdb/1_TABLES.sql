@@ -19,7 +19,7 @@ create table cvs
     skills TEXT not null,
     languages TEXT not null,
     activities TEXT not null,
-    git TEXT,
-    linkedin TEXT,
-    fb TEXT
+    git TEXT null,
+    linkedin TEXT null,
+    fb TEXT null
 );
