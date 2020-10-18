@@ -19,7 +19,7 @@ export class CvTemplateComponent implements OnInit {
   myactivities: any;
   fb:any;
   git:any;
-  in:any;
+  linkedin: any;
   textAreasList:any = [];
   test: any;
 
@@ -40,7 +40,7 @@ export class CvTemplateComponent implements OnInit {
       activities: ngForm.form.value.activities,
       fb: ngForm.form.value.fb,
       git: ngForm.form.value.git,
-      in: ngForm.form.value.in
+      linkedin: ngForm.form.value.linkedin
     });
 
     this.cvService.addCv(cv).subscribe(cv => console.log(cv));

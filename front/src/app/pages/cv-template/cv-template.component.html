@@ -1,92 +1,85 @@
-<mat-tab-group>
-    <mat-tab label="First"> Content 1 </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group>
-<!--
 <h1>Default template :</h1>
-<div>
-
-</div>
-
-
 
 <div class="row template">
     <div class="col-sm-5 col-sm-offset-2">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-            <div class="form-group">
-                <label for="user">
-                    Name
-                </label>
-                <input type="text" id="user" class="form-control" name="user" required [(ngModel)]="myuser" ngModel>
-            </div>
-            <div class="form-group">
-                <label for="education">
-                    Education and Qualification
-                </label>
-                <textarea type="text" id="education" class="form-control" name="education" [(ngModel)]="myeducation" ngModel></textarea>
+            <mat-tab-group>
+                <mat-tab label="Contact Informations">
+                    <div class="form-group">
+                        <label for="user">
+                            Name
+                        </label>
+                        <input type="text" id="user" class="form-control" name="user" required [(ngModel)]="myuser" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="fb">
+                            Link to your Facebook
+                        </label>
+                        <input type="text" id="fb" class="form-control" name="fb" [(ngModel)]="fb" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="git">
+                            Link to your GitHub
+                        </label>
+                        <input type="text" id="git" class="form-control" name="git" [(ngModel)]="git" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin">
+                            Link to your Linkedin
+                        </label>
+                        <input type="text" id="linkedin" class="form-control" name="linkedin" [(ngModel)]="linkedin" ngModel>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Others">
+                    <div class="form-group">
+                        <label for="education">
+                            Education and Qualification
+                        </label>
+                        <textarea type="text" id="education" class="form-control" name="education" [(ngModel)]="myeducation" ngModel></textarea>
 
-                <div *ngFor="let textarea of textAreasList; let textarea_index= index; trackBy:trackByFn">
-                    <textarea type="text" name="{{textarea}}" [(ngModel)]="textAreasList[textarea_index]" [ngModelOptions]="{standalone: true}" ngModel></textarea>
-                    <button class ="btn btn-warning" type="button" (click)="removeTextArea(textarea_index)">Remove</button>
-                </div>
+                        <div *ngFor="let textarea of textAreasList; let textarea_index= index; trackBy:trackByFn">
+                            <textarea type="text" name="{{textarea}}" [(ngModel)]="textAreasList[textarea_index]" [ngModelOptions]="{standalone: true}" ngModel></textarea>
+                            <button class ="btn btn-warning" type="button" (click)="removeTextArea(textarea_index)">Remove</button>
+                        </div>
 
-                <button class ="btn btn-primary" type="button" (click)="addTextarea()"> Add </button>
-            </div>
-            <div class="form-group">
-                <label for="experience">
-                    Work Experience
-                </label>
-                <textarea type="text" id="experience" class="form-control" name="experience" [(ngModel)]="myexperience" ngModel></textarea>
-            </div>
-            <div class="form-group">
-                <label for="skills">
-                    Skills
-                </label>
-                <textarea type="text" id="skills" class="form-control" name="skills" [(ngModel)]="myskills" ngModel></textarea>
-            </div>
-            <div class="form-group">
-                <label for="languages">
-                    Languages
-                </label>
-                <textarea type="text" id="languages" class="form-control" name="languages" [(ngModel)]="mylanguages" ngModel></textarea>
-            </div>
-            <div class="form-group">
-                <label for="activities">
-                    Activities
-                </label>
-                <textarea type="text" id="activities" class="form-control" name="activities" [(ngModel)]="myactivities" ngModel></textarea>
-            </div>
-            <div class="form-group">
-                <label for="activities">
-                    Link to your Facebook
-                </label>
-                <input type="text" id="fb" class="form-control" name="fb" [(ngModel)]="fb" ngModel>
-            </div>
-            <div class="form-group">
-                <label for="activities">
-                    Link to your GitHub
-                </label>
-                <input type="text" id="git" class="form-control" name="git" [(ngModel)]="git" ngModel>
-            </div>
-            <div class="form-group">
-                <label for="activities">
-                    Link to your Linkedin
-                </label>
-                <input type="text" id="in" class="form-control" name="in" [(ngModel)]="in" ngModel>
-            </div>
-            
-            <button class="btn btn-primary" type="submit">Ajouter</button>
+                        <button class ="btn btn-primary" type="button" (click)="addTextarea()"> Add </button>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">
+                            Work Experience
+                        </label>
+                        <textarea type="text" id="experience" class="form-control" name="experience" [(ngModel)]="myexperience" ngModel></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">
+                            Skills
+                        </label>
+                        <textarea type="text" id="skills" class="form-control" name="skills" [(ngModel)]="myskills" ngModel></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="languages">
+                            Languages
+                        </label>
+                        <textarea type="text" id="languages" class="form-control" name="languages" [(ngModel)]="mylanguages" ngModel></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="activities">
+                            Activities
+                        </label>
+                        <textarea type="text" id="activities" class="form-control" name="activities" [(ngModel)]="myactivities" ngModel></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Ajouter</button>
+                </mat-tab>
+            </mat-tab-group>
         </form>
     </div>
-    
     <div class="col-sm-6 col-sm-offset-2 viewCv">
         
         <div class="col-md-12">
             <ul class="social-network social-circle">
                 <li><a href="{{fb}}" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="{{git}}" class="icoGithub" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
-                <li><a href="{{in}}" class="icoLinkedin" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="{{linkedin}}" class="icoLinkedin" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
             </ul>				
         </div>
 
@@ -107,4 +100,3 @@
         <p>{{myactivities}}</p>
     </div>
 </div>
--->
