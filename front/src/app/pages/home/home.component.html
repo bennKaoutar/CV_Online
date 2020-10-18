@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>See the CVs of the users :</h1>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="thead">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let cv of cvs">
+                    <td>{{cv.id}}</td>
+                    <td>{{cv.user}}</td>
+                    <td><button type="button" class="btn btn-danger deleteButton" (click)="goToCvView(cv.id)">See CV</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <h1>Place the login here</h1>
+        </div>
+    </div>
+</div>

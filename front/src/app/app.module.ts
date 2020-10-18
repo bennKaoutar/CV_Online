@@ -6,16 +6,20 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { CvTemplateComponent } from './pages/cv-template/cv-template.component';
+import { HomeComponent } from './pages/home/home.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
+import { CvTemplateComponent } from './pages/cv-template/cv-template.component';
+import { CvViewComponent } from './pages/cv-view/cv-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListUsersComponent,
     AddUserComponent,
-    CvTemplateComponent
+    CvTemplateComponent,
+    HomeComponent,
+    CvViewComponent
   ],
   imports: [
     BrowserModule,
