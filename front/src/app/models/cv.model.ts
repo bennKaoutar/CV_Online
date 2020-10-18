@@ -8,6 +8,9 @@ export class Cv {
     skills: string;
     languages: string;
     activities: string;
+    fb: string;
+    git: string;
+    in: string;
 
     constructor(cv?: Partial<Cv>) {
         defaultsDeep(this, cv);

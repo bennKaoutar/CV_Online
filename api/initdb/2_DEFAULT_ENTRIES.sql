@@ -9,6 +9,6 @@ INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (8, 'Gisèle
 INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (9, 'Thomas', 'Ouaque', null);
 INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (10, 'Sacha', 'Telfrize', 23);
 
-INSERT INTO defaultdb.cvs (id, user, education, experience, skills, languages, activities) VALUES (1, 'Gisèle', 'EPF', 'Internship', 'C,Java', 'English', 'football');
-INSERT INTO defaultdb.cvs (id, user, education, experience, skills, languages, activities) VALUES (2, 'Thomas', 'DTU', 'Internship', 'C,Java', 'English', 'football');
-INSERT INTO defaultdb.cvs (id, user, education, experience, skills, languages, activities) VALUES (3, 'Sacha', 'ESIEA', 'Internship', 'C,Java', 'English', 'football');
+
+INSERT INTO defaultdb.cvs (id, user, education, experience, skills, languages, activities, git, linkedin, fb) VALUES (1, 'Sacha', 'cv', 'hg', 'vjh', 'khjv', 'hg', 'vjh', 'khjv', 'fg');
+
