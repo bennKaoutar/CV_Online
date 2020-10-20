@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="form-group">
+                    <input [formControl]="firstname" class="form-control validation-field " placeholder="First name" type="text">
+                    <small class="text-danger" *ngIf="form.get('firstname').touched && form.get('firstname').hasError('required')">You must fill this section</small>
+                </div>
+                <div class="form-group">
+                    <input [formControl]="lastname" class="form-control validation-field " placeholder="Last name" type="text">
+                    <small class="text-danger" *ngIf="form.get('lastname').touched && form.get('lastname').hasError('required')">You must fill this section</small>
+                </div>
+                <div class="form-group">
+                    <input [formControl]="email" class="form-control" placeholder="Email" type="text"  >
+                    <small class="text-danger" *ngIf="loginform.get('email').touched && loginform.get('email').hasError('required')">Enter an email address</small>
+                    <small class="text-danger" *ngIf="loginform.get('email').touched && loginform.get('email').hasError('email')">Enter a valid address</small>
+                </div>
+                <div class="form-group">
+                    <input [formControl]="username" class="form-control validation-field " placeholder="Username" type="text">
+                    <small class="text-danger" *ngIf="form.get('username').touched && form.get('username').hasError('required')">Username is required</small>
+                </div>
+                <div class="form-group">
+                    <input [formControl]="age" class="form-control validation-field " placeholder="Age" type="integer">
+                </div>
+
+                <div class="form-group">
+                    <input [formControl]="password" class="form-control validation-field" placeholder="Password" type="password">
+                    <small class="text-danger" *ngIf="form.get('password').touched && form.get('password').hasError('required')">Password is required</small>
+                    <small class="text-danger" *ngIf="form.get('password').touched && form.get('password').hasError('minlength')">Password isn't long enough, minimum of 6 characters</small>
+                </div>
+
+
+                <button class="btn btn-primary" type="submit">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
+</div>
