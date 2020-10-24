@@ -5,7 +5,9 @@ create table users
         primary key (id),
     first_name TEXT not null,
     last_name TEXT not null,
-    age int null
+    age int null,
+    email TEXT not null,
+    password TEXT not null
 );
 
 create table cvs

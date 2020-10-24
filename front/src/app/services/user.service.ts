@@ -21,6 +21,7 @@ export class UserService {
   }
 
   addUser(user: User): Observable<User> {
+    console.log(user, 'service');
     return this.http.post<any>(`${this.url}/users`, user).pipe(timeout(10000));
   }
 
@@ -29,3 +30,4 @@ export class UserService {
   }
 
 }
+//

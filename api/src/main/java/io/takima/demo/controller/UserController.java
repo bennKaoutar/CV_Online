@@ -28,9 +28,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public User addUser(@RequestBody User user) {
-        return this.userDAO.save(user);
-    }
+    public User addUser(@RequestBody User user) { return this.userDAO.save(user);}
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
