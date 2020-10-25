@@ -5,9 +5,9 @@
         </div>
         <div class="col">
             <mat-card>
-                <h1 class="card_title"> To register please fill the form below : </h1>
-                <mat-card-content>
-                    <app-add-user></app-add-user>
+                <mat-card-content >
+                    <app-login-user (wantedToSignUp)="onWantedToSignUp($event)" *ngIf="!hide"></app-login-user>
+                    <app-add-user (wantedToSignUp)="onWantedToSignUp($event)" *ngIf="hide"></app-add-user>
                 </mat-card-content>
             </mat-card>
         </div>

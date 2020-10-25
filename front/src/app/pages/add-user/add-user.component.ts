@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormControl, NgForm, Validators, FormGroup } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { defaultsDeep } from 'lodash';
@@ -13,6 +13,7 @@ export class AddUserComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
 
+  @Output() wantedToSignUp = new EventEmitter<boolean>();
   userForm : FormGroup;
   hide = true;
 
@@ -24,6 +25,10 @@ export class AddUserComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     })
+  }
+
+  wantToSignUp() {
+    this.wantedToSignUp.emit(false);
   }
 
   onSubmit() {
@@ -45,4 +50,6 @@ export class AddUserComponent implements OnInit {
   get lastname() { return this.userForm.get('lastname') }
   get email() { return this.userForm.get('email') }
   get password() { return this.userForm.get('password') }
+
+
 }

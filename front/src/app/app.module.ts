@@ -20,6 +20,7 @@ import {AddUserComponent} from './pages/add-user/add-user.component';
 import {CvTemplateComponent} from './pages/cv-template/cv-template.component';
 import {CvViewComponent} from './pages/cv-view/cv-view.component';
 import { ListCvsComponent } from './pages/list-cvs/list-cvs.component';
+import { LoginUserComponent } from './pages/login-user/login-user.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { ListCvsComponent } from './pages/list-cvs/list-cvs.component';
         CvTemplateComponent,
         HomeComponent,
         CvViewComponent,
-        ListCvsComponent
+        ListCvsComponent,
+        LoginUserComponent
     ],
     imports: [
         BrowserModule,
