@@ -10,17 +10,9 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  cvs: Cv[];
-  cv: Cv;
-
-  constructor(private cvService: CvService, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.cvService.getCvs().subscribe(cvs => this.cvs = cvs);
-  }
-
-  goToCvView(id: number){
-    this.router.navigateByUrl(`/cv-view/${id}`);
   }
 
 }
