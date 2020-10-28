@@ -11,6 +11,8 @@ import { ListUsersComponent } from './pages/list-users/list-users.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { CvTemplateComponent } from './pages/cv-template/cv-template.component';
 import { CvViewComponent } from './pages/cv-view/cv-view.component';
+import { ContactComponent } from './pages/contact/contact.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { CvViewComponent } from './pages/cv-view/cv-view.component';
     AddUserComponent,
     CvTemplateComponent,
     HomeComponent,
-    CvViewComponent
+    CvViewComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
