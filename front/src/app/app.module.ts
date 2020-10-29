@@ -10,7 +10,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
@@ -21,6 +20,8 @@ import {CvTemplateComponent} from './pages/cv-template/cv-template.component';
 import {CvViewComponent} from './pages/cv-view/cv-view.component';
 import { ListCvsComponent } from './pages/list-cvs/list-cvs.component';
 import { LoginUserComponent } from './pages/login-user/login-user.component';
+
+import {environment} from '../environments/environment';
 
 @NgModule({
     declarations: [

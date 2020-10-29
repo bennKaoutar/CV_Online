@@ -13,6 +13,7 @@ data class User(
         @Column(name = "last_name") var lastName: String?,
         @Column(name = "age") var age: Int?,
         @Column(name = "email") var email: String?,
-        @Column(name = "password") var password: String?) {
-    constructor() : this(null, null, null, null, null, null)
+        @Column(name = "password") var password: String?,
+        @Column(name = "token") var token: String?) {
+    constructor() : this(null, null, null, null, null, null, null)
 }

@@ -7,7 +7,8 @@ create table users
     last_name TEXT not null,
     age int null,
     email TEXT not null,
-    password TEXT not null
+    password TEXT not null,
+    token TEXT null
 );
 
 create table cvs

@@ -30,6 +30,9 @@ public class UserController {
     @PostMapping()
     public User addUser(@RequestBody User user) { return this.userDAO.save(user);}
 
+    @PostMapping("/token")
+    public User addUserToken(@RequestBody User user) {return this.userDAO.save(user);}
+
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         this.userDAO.deleteById(id);
