@@ -11,4 +11,3 @@ INSERT INTO defaultdb.users (id, first_name, last_name, age) VALUES (10, 'Sacha'
 
 
 INSERT INTO defaultdb.cvs (id, user, education, experience, skills, languages, activities, git, linkedin, fb) VALUES (1, 'Sacha', 'cv', 'hg', 'vjh', 'khjv', 'hg', 'vjh', 'khjv', 'fg');
-

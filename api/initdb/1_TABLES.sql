@@ -23,3 +23,11 @@ create table cvs
     linkedin TEXT null,
     fb TEXT null
 );
+
+create table education
+(
+    id bigint auto_increment,
+    constraint users_pk
+        primary key (id),
+    text TEXT not null
+);

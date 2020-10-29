@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import { defaultsDeep } from 'lodash';
 import {Router} from '@angular/router';
 import {CvService} from '../../services/cv.service';
+import {EducationService} from '../../services/education.service';
 
 @Component({
   selector: 'app-cv-template',
@@ -23,17 +24,31 @@ export class CvTemplateComponent implements OnInit {
   textAreasList:any = [];
   test: any;
 
-  constructor(private cvService: CvService, private router: Router) { }
+  constructor(
+      private cvService: CvService,
+      private educationService: EducationService,
+      private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(ngForm: NgForm) {
-    console.log(ngForm);
+    console.log(this.textAreasList);
+
+    this.textAreasList.forEach(ed => {
+      console.log(ed)
+      const education = defaultsDeep({
+        id: null,
+        text: ed
+      })
+      this.educationService.addEducation(education).subscribe(education => console.log(education));
+    })
+
+
     const cv = defaultsDeep({
       id: null,
       user: ngForm.form.value.user,
-      education: ngForm.form.value.education,
+      education: '2',
       experience: ngForm.form.value.experience,
       skills: ngForm.form.value.skills,
       languages: ngForm.form.value.languages,
