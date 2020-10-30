@@ -28,6 +28,9 @@
             </mat-form-field>
         </div>
         <p class="right"><a href="#" (click)="wantToSignUp()">I don't have an account yet.</a></p>
-        <button class="btn btn-primary inputArea" type="submit" [disabled]="!loginForm.valid">Connect</button>
+        <mat-error *ngIf="errorMessage"> {{errorMessage}} </mat-error>
+        <div>
+            <button class="btn btn-primary inputArea" type="submit" [disabled]="!loginForm.valid">Connect</button>
+        </div>
     </form>
 </div>

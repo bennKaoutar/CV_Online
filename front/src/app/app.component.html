@@ -1,9 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <img class="logo" src="/assets/logo-epf.svg"/>
-  <a class="navbar-brand" [routerLink]="['/']">Home</a>
-  <a class="navbar-brand" [routerLink]="['/list']">User List</a>
-  <a class="navbar-brand" [routerLink]="['/cv-template']">Template</a>
+<nav class="navbar navbar-expand navbar-light bg-secondary">
+    <img class="logo" src="/assets/logo-epf.svg"/>
+    <a class="navbar-brand text-white" [routerLink]="['/']">Home</a>
+    <a class="navbar-brand text-white" [routerLink]="['/list']">User List</a>
+    <a class="navbar-brand text-white" *ngIf="userConnected()" [routerLink]="['/cv-template']">Template</a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="userConnected()">
+        <a><span class="navbar-brand text-white"> Connected as {{user.firstName}} {{user.lastName.toUpperCase()}}</span></a>
+        <a><button class="btn btn-danger" (click)="logOut()">Sign Out</button></a>
+      </li>
+    </ul>
 </nav>
+
 
 <router-outlet></router-outlet>
 

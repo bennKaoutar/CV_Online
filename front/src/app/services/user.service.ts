@@ -21,12 +21,15 @@ export class UserService {
   }
 
   addUser(user: User): Observable<User> {
-    console.log(user, 'service');
     return this.http.post<any>(`${this.url}/users`, user).pipe(timeout(10000));
   }
 
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.url}/users/${id}`).pipe(timeout(10000));
+  }
+
+  checkUser(credentials: object): Observable<User[]> {
+    return this.http.post<any>(`${this.url}/users/login`, credentials).pipe(timeout(10000));
   }
 
 }
