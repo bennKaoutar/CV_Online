@@ -5,6 +5,7 @@ import {defaultsDeep} from 'lodash';
 import {Router} from '@angular/router';
 import {CvService} from '../../services/cv.service';
 import {Cv} from '../../models/cv.model';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
     selector: 'app-add-user',
@@ -13,7 +14,7 @@ import {Cv} from '../../models/cv.model';
 })
 export class AddUserComponent implements OnInit {
 
-    constructor(private userService: UserService, private cvService: CvService, private router: Router) {
+    constructor(private userService: UserService, private cvService: CvService, private authService: AuthService, private router: Router) {
     }
 
     @Output() wantedToSignUp = new EventEmitter<boolean>();
@@ -48,8 +49,9 @@ export class AddUserComponent implements OnInit {
                 password: this.userForm.value.password,
                 idCv: cv.id
             });
-            this.userService.addUser(user).subscribe(user => console.log(user));
-            this.router.navigateByUrl(`/cv-template/${user.idCv}`);
+            this.userService.addUser(user).subscribe();
+            this.authService.setCurrentUser(user);
+            this.router.navigateByUrl(`/cv-template`).then();
         });
     }
 

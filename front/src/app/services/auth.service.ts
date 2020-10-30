@@ -9,7 +9,6 @@ export class AuthService {
     constructor() {
     }
 
-
     setCurrentUser(user: User) {
         if(user != null){
             localStorage.setItem('currentUser', JSON.stringify(user));

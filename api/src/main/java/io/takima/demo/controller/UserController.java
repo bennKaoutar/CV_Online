@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 @RestController
@@ -33,6 +34,7 @@ public class UserController {
     public List<User> checkUser(@RequestBody ObjectNode credentials) {
         String email = credentials.get("email").asText();
         String password = credentials.get("password").asText();
+
         Iterable<User> it = this.userDAO.findAll();
         List<User> users = new ArrayList<>();
         it.forEach(e -> {
