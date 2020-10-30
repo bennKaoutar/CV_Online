@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Cv} from '../../models/cv.model';
-import {CvService} from '../../services/cv.service';
-import {Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +7,16 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  cvs: Cv[];
-  cv: Cv;
+  hide = false;
 
-  constructor(private cvService: CvService, private router: Router) { }
-
-  ngOnInit(): void {
-    this.cvService.getCvs().subscribe(cvs => this.cvs = cvs);
+  constructor() {
   }
 
-  goToCvView(id: number){
-    this.router.navigateByUrl(`/cv-view/${id}`);
+  ngOnInit(): void {
+  }
+
+  onWantedToSignUp(hide: boolean){
+    this.hide = hide;
   }
 
 }

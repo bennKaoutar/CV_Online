@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InscriptionComponent } from './inscription.component';
+import { ListCvsComponent } from './list-cvs.component';
 
-describe('InscriptionComponent', () => {
-  let component: InscriptionComponent;
-  let fixture: ComponentFixture<InscriptionComponent>;
+describe('ListCvsComponent', () => {
+  let component: ListCvsComponent;
+  let fixture: ComponentFixture<ListCvsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InscriptionComponent ]
+      declarations: [ ListCvsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InscriptionComponent);
+    fixture = TestBed.createComponent(ListCvsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

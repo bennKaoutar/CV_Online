@@ -15,6 +15,10 @@ export class CvViewComponent implements OnInit {
   constructor(private cvService: CvService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.cvService.getCv(this.route.snapshot.params.id).subscribe(cv => this.cv = cv );
+    const a = this.route.data.subscribe((data: { cv: Cv }) => {
+      this.cv = data.cv;
+      console.log(this.cv, 'this cv');
+    });
+    console.log(a, 'a');
   }
 }
