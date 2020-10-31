@@ -1,24 +1,29 @@
 package io.takima.demo;
 
+import io.takima.demo.model.Mail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
-@Service
+@RestController
+@RequestMapping("/mail")
+@CrossOrigin
 public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public void sendSimpleMailMessage() {
+    @PostMapping
+    public Mail sendMail(@RequestBody Mail mail) {
 
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo("mendugamvogo@gmail.com");
-        msg.setFrom("onlinecv.epfproject@gmail.com");
-        msg.setSubject("Testing from Spring Boot");
-        msg.setText("Hello World \n Spring Boot Email");
+        msg.setTo(mail.getEmailSender());
+        msg.setSubject(mail.getSubject());
+        msg.setText("Vous avez reçu un message de :" + mail.getNameSender() + mail.getText());
 
         javaMailSender.send(msg);
+        return mail;
 
     }
     public void setTo(String s) {

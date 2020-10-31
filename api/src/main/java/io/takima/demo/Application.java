@@ -29,19 +29,13 @@ import java.io.IOException;
 @EnableAutoConfiguration
 @SpringBootConfiguration
 @Component
-public class Application implements ApplicationRunner {
-    private static Logger log = LoggerFactory.getLogger(Application.class);
-    @Autowired
-    private EmailService emailService;
+public class Application  {
+
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(Application.class)
                 .run();
     }
 
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-        log.info("Email envoye");
-        emailService.sendSimpleMailMessage();
-    }
+
 }
