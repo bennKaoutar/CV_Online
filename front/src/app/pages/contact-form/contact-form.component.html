@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>To contact Name please fill the form below : </h1>
+<div mat-dialog-content>
+    <form>
+        <mat-form-field class="full-width">
+            <mat-label>Your name :</mat-label>
+            <input matInput [(ngModel)]="name" name="name">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Your email address :</mat-label>
+            <input matInput [(ngModel)]="email" name="email">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Subject :</mat-label>
+            <input matInput [(ngModel)]="subject" name="subject">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Message :</mat-label>
+            <textarea matInput [(ngModel)]="message" name="message"></textarea>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Return</button>
+    <button mat-button [mat-dialog-close] cdkFocusInitial>Send</button>
+</div>

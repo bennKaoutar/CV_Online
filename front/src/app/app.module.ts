@@ -4,6 +4,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +18,7 @@ import { ListUsersComponent } from './pages/list-users/list-users.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { CvTemplateComponent } from './pages/cv-template/cv-template.component';
 import { CvViewComponent } from './pages/cv-view/cv-view.component';
+import { ContactFormComponent } from './pages/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import { CvViewComponent } from './pages/cv-view/cv-view.component';
     AddUserComponent,
     CvTemplateComponent,
     HomeComponent,
-    CvViewComponent
+    CvViewComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,11 @@ import { CvViewComponent } from './pages/cv-view/cv-view.component';
     HttpClientModule,
     FormsModule,
     MatTabsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
