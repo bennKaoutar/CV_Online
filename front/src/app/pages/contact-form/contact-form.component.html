@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>To contact Name please fill the form below : </h1>
-<div mat-dialog-content>
-    <form>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div mat-dialog-content>
         <mat-form-field class="full-width">
             <mat-label>Your name :</mat-label>
             <input matInput [(ngModel)]="name" name="name">
@@ -17,9 +17,10 @@
             <mat-label>Message :</mat-label>
             <textarea matInput [(ngModel)]="message" name="message"></textarea>
         </mat-form-field>
-    </form>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Return</button>
-    <button mat-button [mat-dialog-close] cdkFocusInitial>Send</button>
-</div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Return</button>
+        <button mat-button type="submit" [mat-dialog-close]>Send</button>
+    </div>
+</form>
+

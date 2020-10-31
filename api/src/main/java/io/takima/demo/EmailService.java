@@ -4,13 +4,13 @@ import io.takima.demo.model.Mail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/mail")
 @CrossOrigin
 public class EmailService {
+
     @Autowired
     private JavaMailSender javaMailSender;
 
@@ -18,20 +18,13 @@ public class EmailService {
     public Mail sendMail(@RequestBody Mail mail) {
 
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo(mail.getEmailSender());
+        msg.setTo("cecile.vanhelleputte@gmail.com");
         msg.setSubject(mail.getSubject());
-        msg.setText("Vous avez reçu un message de :" + mail.getNameSender() + mail.getText());
+        msg.setText("Vous avez reçu un message de : " + mail.getNameSender() +
+                "\nSon l'adresse email : " + mail.getEmailSender() +
+                "\n\n Message : \n\n" + mail.getMessage());
 
         javaMailSender.send(msg);
         return mail;
-
-    }
-    public void setTo(String s) {
-    }
-
-    public void setSubject(String testing_from_spring_boot) {
-    }
-
-    public void setText(String s) {
     }
 }
