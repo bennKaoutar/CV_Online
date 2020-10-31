@@ -11,7 +11,7 @@
     <tr *ngFor="let cv of cvs">
         <td>{{cv.id}}</td>
         <td>{{cv.user}}</td>
-        <td><button type="button" class="btn btn-danger deleteButton" (click)="goToCvView(cv.id)">See CV</button></td>
+        <td><button type="button" class="btn btn-primary deleteButton" (click)="goToCvView(cv.id)">See CV</button></td>
     </tr>
     </tbody>
 </table>

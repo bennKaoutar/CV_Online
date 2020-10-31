@@ -1,15 +1,46 @@
-<nav class="navbar navbar-expand navbar-light bg-secondary">
-    <img class="logo" src="/assets/logo-epf.svg"/>
-    <a class="navbar-brand text-white" [routerLink]="['/']">Home</a>
-    <a class="navbar-brand text-white" [routerLink]="['/list']">User List</a>
-    <a class="navbar-brand text-white" *ngIf="userConnected()" [routerLink]="['/cv-template']">Template</a>
-    <ul class="navbar-nav ml-auto">
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="['/']">Cvs Platform </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item " *ngIf="!userConnected()">
+        <a class="nav-link"  [routerLink]="['/']" routerLinkActive="active-link">
+          <i class="fa fa-home"></i>
+          Home
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/list']" routerLinkActive="active-link">
+          <i class="fa fa-user">
+          </i>
+          List of users
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="userConnected()" [routerLink]="['/cv-template']" routerLinkActive="active-link">
+          <i class="fa fa-edit">
+          </i>
+          Template
+          </a>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
       <li class="nav-item" *ngIf="userConnected()">
         <a><span class="navbar-brand text-white"> Connected as {{user.firstName}} {{user.lastName.toUpperCase()}}</span></a>
-        <a><button class="btn btn-danger" (click)="logOut()">Sign Out</button></a>
-      </li>
-    </ul>
+        <a><button class="btn btn-outline-success my-2 my-sm-0" (click)="logOut()">Sign Out</button></a>
+    
+  </li>
+  <span *ngIf="!userConnected()">
+      <input class="form-control mr-sm-2"  type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button></span>
+    </form>
+  </div>
 </nav>
+
 
 
 <router-outlet></router-outlet>
