@@ -26,4 +26,9 @@ export class CvService {
     addCv(cv: Cv): Observable<Cv> {
         return this.http.post<any>(`${this.url}/cvs`, cv).pipe(timeout(10000));
     }
+    postFile(fileToUpload: File) {
+        const formData: FormData = new FormData();
+        formData.append('Image', fileToUpload, fileToUpload.name);
+        return this.http.post(`${this.url}/cvs/${formData}`, Cv).pipe(timeout(10000));
+      }
 }

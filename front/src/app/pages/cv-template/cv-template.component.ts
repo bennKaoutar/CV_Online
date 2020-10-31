@@ -1,3 +1,4 @@
+import { User } from './../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { defaultsDeep } from 'lodash';
@@ -10,7 +11,9 @@ import {CvService} from '../../services/cv.service';
   styleUrls: ['./cv-template.component.css']
 })
 export class CvTemplateComponent implements OnInit {
-
+  imageUrl: string = "";
+  fileToUpload: File = null;
+  myimage: File;
   myuser: any;
   myeducation: any;
   myexperience: any;
@@ -32,6 +35,7 @@ export class CvTemplateComponent implements OnInit {
     console.log(ngForm);
     const cv = defaultsDeep({
       id: null,
+      image: ngForm.form.value.image,
       user: ngForm.form.value.user,
       education: ngForm.form.value.education,
       experience: ngForm.form.value.experience,
@@ -46,6 +50,30 @@ export class CvTemplateComponent implements OnInit {
     this.cvService.addCv(cv).subscribe(cv => console.log(cv));
     this.router.navigateByUrl('/')
   }
+  // onFileChanged(event) {
+  //   this.selectedFile = event.target.files[0]
+  // }
+
+  // handleFileInput(file: FileList){
+  //   this.selectedFile=file.item(0);
+
+  //   var reader = new FileReader();
+  //   reader.onload=(event:any)=>{
+  //     this.myimage=event.target.result;
+  //   }
+  //   reader.readAsDataURL(this.selectedFile);
+  // }
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+
+    //Show image preview
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+      this.imageUrl = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
 
   addTextarea(){
     this.textAreasList.push('');
@@ -59,4 +87,5 @@ export class CvTemplateComponent implements OnInit {
   trackByFn(index: any){
     return index;
   }
+  
 }

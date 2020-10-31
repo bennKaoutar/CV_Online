@@ -23,3 +23,4 @@ create table cvs
     linkedin TEXT null,
     fb TEXT null
 );
+alter table cvs add column image blob;

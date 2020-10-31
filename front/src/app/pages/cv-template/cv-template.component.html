@@ -32,6 +32,12 @@
                 </mat-tab>
                 <mat-tab label="Others">
                     <div class="form-group">
+
+                        <img [src]="imageUrl"  style="width:250px;height:200px">
+                        <input name="image" type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)" [(ngModel)]="myimage" ngModel>
+                        <button type="button" class="btn-large btn-submit" [disabled]="Image.value==''">add</button>
+
+
                         <label for="education">
                             Education and Qualification
                         </label>
@@ -83,6 +89,9 @@
             </ul>				
         </div>
 
+
+        <h4>Picture</h4>
+        <p>{{myimage}}</p>
         <h4>Name</h4>
         <p>{{myuser}}</p>
         <h4>Education and Qualification</h4>
