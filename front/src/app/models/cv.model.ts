@@ -10,7 +10,7 @@ export class Cv {
     activities: string;
     fb: string;
     git: string;
-    in: string;
+    linkedin: string;
 
     constructor(cv?: Partial<Cv>) {
         defaultsDeep(this, cv);
