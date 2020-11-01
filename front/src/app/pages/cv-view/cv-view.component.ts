@@ -1,10 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {CvService} from '../../services/cv.service';
-import {Cv} from '../../models/cv.model';
-import {ActivatedRoute} from '@angular/router';
 import {ImageService} from "../../services/image.service";
 import {User} from "../../models/user.model";
 import {AuthService} from "../../services/auth.service";
+import { Component, OnInit, Inject} from '@angular/core';
+import {CvService} from '../../services/cv.service';
+import {Cv} from '../../models/cv.model';
+import {ActivatedRoute} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {ContactFormComponent} from '../contact-form/contact-form.component';
+
 
 @Component({
     selector: 'app-cv-view',
@@ -19,8 +22,10 @@ export class CvViewComponent implements OnInit {
     base64Data: any;
     convertedImage: any;
 
+
     constructor(private cvService: CvService, private route: ActivatedRoute,
-                private authService: AuthService, private imageService: ImageService) {
+                private authService: AuthService, private imageService: ImageService,
+                public dialog: MatDialog) {
     }
 
     ngOnInit() {
@@ -41,4 +46,15 @@ export class CvViewComponent implements OnInit {
                 err => console.log('Error Occured during getting the picture : ' + err)
             );
     }
+}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ContactFormComponent, {
+      width: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('send email');
+    });
+  }
 }
