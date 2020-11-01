@@ -92,6 +92,7 @@
 
         <!-- <div><img [src]="url" *ngIf="url" alt="yourPicture"> </div> -->
         <div><img [src]="imgURL" height="200" *ngIf="imgURL"></div>
+        <img height="200" *ngIf="selectedFile == null" [src]="convertedImage" >
         <h4>Name</h4>
         <p>{{myuser}}</p>
         <h4>Education and Qualification</h4>

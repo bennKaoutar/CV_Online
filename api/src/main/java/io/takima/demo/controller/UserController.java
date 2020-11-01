@@ -26,7 +26,18 @@ public class UserController {
         Iterable<User> it = this.userDAO.findAll();
         List<User> users = new ArrayList<>();
         it.forEach(e -> users.add(e));
+        return users;
+    }
 
+    @GetMapping("/fromcv/{id_cv}")
+    public List<User> getUserFromCv(@PathVariable Long id_cv){
+        Iterable<User> it = this.userDAO.findAll();
+        List<User> users = new ArrayList<>();
+        it.forEach(e -> {
+            if(Objects.equals(e.getIdCv(), id_cv)){
+                users.add(e);
+            }
+        });
         return users;
     }
 

@@ -1,4 +1,4 @@
-import { MatDialogModule } from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -19,9 +19,9 @@ import {ListUsersComponent} from './pages/list-users/list-users.component';
 import {AddUserComponent} from './pages/add-user/add-user.component';
 import {CvTemplateComponent} from './pages/cv-template/cv-template.component';
 import {CvViewComponent} from './pages/cv-view/cv-view.component';
-import { ContactFormComponent } from './pages/contact-form/contact-form.component';
-import { ListCvsComponent } from './pages/list-cvs/list-cvs.component';
-import { LoginUserComponent } from './pages/login-user/login-user.component';
+import {ContactFormComponent} from './pages/contact-form/contact-form.component';
+import {ListCvsComponent} from './pages/list-cvs/list-cvs.component';
+import {LoginUserComponent} from './pages/login-user/login-user.component';
 
 @NgModule({
     declarations: [
@@ -47,7 +47,8 @@ import { LoginUserComponent } from './pages/login-user/login-user.component';
         MatInputModule,
         MatButtonModule,
         MatIconModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatDialogModule
     ],
     providers: [],
     bootstrap: [AppComponent]

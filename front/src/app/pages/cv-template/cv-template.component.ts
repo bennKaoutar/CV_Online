@@ -38,6 +38,8 @@ export class CvTemplateComponent implements OnInit {
     receivedImageData: any;
     base64Data: any;
     msg: string;
+    convertedImage: any;
+    hidePicture: boolean;
 
 
     constructor(private cvService: CvService, private authService: AuthService, private userService: UserService,
@@ -52,6 +54,20 @@ export class CvTemplateComponent implements OnInit {
         this.myskills = this.cv.skills;
         this.mylanguages = this.cv.languages;
         this.myactivities = this.cv.activities;
+        this.hidePicture = true;
+
+        if(this.user.idImage != null){
+            this.imageService.getImage(this.user.idImage)
+                .subscribe(
+                    res => {
+                        this.receivedImageData = res;
+                        this.base64Data = this.receivedImageData.pic;
+                        this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
+                        this.hidePicture = false;
+                    },
+                    err => console.log('Error Occured during getting the picture : ' + err)
+                );
+        }
     }
 
     onSubmit(ngForm: NgForm) {
@@ -69,18 +85,19 @@ export class CvTemplateComponent implements OnInit {
         });
         this.cvService.addCv(cv).subscribe(cv => console.log(cv));
 
-        const uploadData = new FormData();
-        uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
-        this.imageService.uploadImage(uploadData).subscribe( img => {
-            this.image = img;
-            console.log(this.image.id, 'img id');
-            console.log(this.user, 'user');
-            this.userService.setPicture(this.user.id, this.image.id).subscribe( user => {
-                this.authService.setCurrentUser(user);
-                console.log(this.authService.getCurrentUser());
-                this.router.navigateByUrl(`/cv-view/${cv.id}`)
-            });
-        })
+        if (this.selectedFile != null){
+            const uploadData = new FormData();
+            uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
+            this.imageService.uploadImage(uploadData).subscribe( img => {
+                this.image = img;
+                this.userService.setPicture(this.user.id, this.image.id).subscribe( user => {
+                    this.authService.setCurrentUser(user);
+                    this.router.navigateByUrl(`/cv-view/${cv.id}`)
+                });
+            })
+        } else {
+            this.router.navigateByUrl(`/cv-view/${cv.id}`)
+        }
     }
 
     addTextarea() {
