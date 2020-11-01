@@ -62,8 +62,18 @@ export class CvTemplateComponent implements OnInit {
         this.myactivities = this.cv.activities;
         this.hidePicture = true;
 
-        this.bannerColor = '#fff';
-        this.titlesColor = '#000000';
+        if (this.user.idCustom != null) {
+            this.customService.getCustom(this.user.idCustom)
+                .subscribe(
+                    custom => {
+                        this.bannerColor = custom.banner;
+                        this.titlesColor = custom.titles;
+                    }
+                )
+        } else {
+            this.bannerColor = '#fff';
+            this.titlesColor = '#000000';
+        }
 
         if (this.user.idImage != null) {
             this.imageService.getImage(this.user.idImage)
