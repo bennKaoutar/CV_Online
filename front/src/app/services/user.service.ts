@@ -24,6 +24,10 @@ export class UserService {
     return this.http.get<User[]>(`${this.url}/users/fromcv/${id}`).pipe(timeout(10000));
   }
 
+  createCredentials(credentials: object): Observable<object> {
+    return this.http.post<any>(`${this.url}/users/signup`, credentials).pipe(timeout(10000));
+  }
+
   addUser(user: User): Observable<User> {
     return this.http.post<any>(`${this.url}/users`, user).pipe(timeout(10000));
   }

@@ -7,7 +7,8 @@ create table users
     last_name  TEXT   not null,
     age        int    null,
     email      TEXT   not null,
-    password   TEXT   not null,
+    hash       BLOB   not null,
+    salt       BLOB   not null,
     id_cv      bigint,
     id_image   bigint null,
     id_custom  bigint null
@@ -34,14 +35,14 @@ create table image_model
     id   bigint auto_increment,
     constraint img_pk
         primary key (id),
-    name TEXT null,
-    type TEXT null,
+    name TEXT     null,
+    type TEXT     null,
     pic  LONGBLOB null
 );
 
 create table custom
 (
-    id   bigint auto_increment,
+    id     bigint auto_increment,
     constraint custom_pk
         primary key (id),
     banner TEXT null,

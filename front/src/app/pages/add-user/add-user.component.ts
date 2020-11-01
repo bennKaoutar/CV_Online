@@ -13,6 +13,7 @@ import {AuthService} from '../../services/auth.service';
     styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
+    private errorMessage: string;
 
     constructor(private userService: UserService, private cvService: CvService, private authService: AuthService, private router: Router) {
     }
@@ -37,24 +38,37 @@ export class AddUserComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.userForm.value);
-        const cv = defaultsDeep({});
-        this.cvService.addCv(cv).subscribe(cv => {
-            const userNew = defaultsDeep({
-                id: null,
-                firstName: this.userForm.value.firstname,
-                lastName: this.userForm.value.lastname,
-                age: this.userForm.value.age,
-                email: this.userForm.value.email,
-                password: this.userForm.value.password,
-                idCv: cv.id
-            });
-            this.userService.addUser(userNew).subscribe(user => {
-                this.authService.setCurrentUser(user);
-                console.log(this.authService.getCurrentUser());
-                this.router.navigateByUrl(`/cv-template`).then();
-            });
-        });
+        let credentials = defaultsDeep({
+            email: this.userForm.value.email,
+            password: this.userForm.value.password
+        })
+        this.userService.createCredentials(credentials).subscribe(
+            credentialsSecurise => {
+                credentials = credentialsSecurise;
+                if (credentials == null) {
+                    this.errorMessage = 'A user with this email address already exist.';
+                } else {
+                    const cv = defaultsDeep({});
+                    this.cvService.addCv(cv).subscribe(cv => {
+                        const userNew = defaultsDeep({
+                            id: null,
+                            firstName: this.userForm.value.firstname,
+                            lastName: this.userForm.value.lastname,
+                            age: this.userForm.value.age,
+                            email: this.userForm.value.email,
+                            hash: credentials.hash,
+                            salt: credentials.salt,
+                            idCv: cv.id
+                        });
+                        this.userService.addUser(userNew).subscribe(user => {
+                            this.authService.setCurrentUser(user);
+                            console.log(this.authService.getCurrentUser());
+                            this.router.navigateByUrl(`/cv-template`).then();
+                        });
+                    });
+                }
+            }
+        )
     }
 
     get firstname() {
