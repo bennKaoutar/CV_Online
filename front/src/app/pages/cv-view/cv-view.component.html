@@ -1,4 +1,12 @@
 <div class="container">
+    <div class="col-md-12">
+        <ul class="social-network social-circle">
+            <li><a href="{{cv.fb}}" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="{{cv.git}}" class="icoGithub" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
+            <li><a href="{{cv.linkedin}}" class="icoLinkedin" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+    </div>
+    <img height="200" [src]="convertedImage" >
     <h4>Name</h4>
     <p>{{cv.user}}</p>
     <h4>Education and Qualification</h4>

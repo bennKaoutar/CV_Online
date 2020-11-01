@@ -7,7 +7,8 @@ export class User {
   age: number;
   email: string;
   password: string;
-  idCv: number
+  idCv: number;
+  idImage: number;
 
   constructor(user?: Partial<User>) {
     defaultsDeep(this, user);

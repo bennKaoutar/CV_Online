@@ -40,7 +40,7 @@ export class AddUserComponent implements OnInit {
         console.log(this.userForm.value);
         const cv = defaultsDeep({});
         this.cvService.addCv(cv).subscribe(cv => {
-            const user = defaultsDeep({
+            const userNew = defaultsDeep({
                 id: null,
                 firstName: this.userForm.value.firstname,
                 lastName: this.userForm.value.lastname,
@@ -49,9 +49,11 @@ export class AddUserComponent implements OnInit {
                 password: this.userForm.value.password,
                 idCv: cv.id
             });
-            this.userService.addUser(user).subscribe();
-            this.authService.setCurrentUser(user);
-            this.router.navigateByUrl(`/cv-template`).then();
+            this.userService.addUser(userNew).subscribe(user => {
+                this.authService.setCurrentUser(user);
+                console.log(this.authService.getCurrentUser());
+                this.router.navigateByUrl(`/cv-template`).then();
+            });
         });
     }
 

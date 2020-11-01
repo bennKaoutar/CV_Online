@@ -11,6 +11,13 @@
                         </label>
                         <input type="text" id="user" class="form-control" name="user" required [(ngModel)]="myuser" ngModel>
                     </div>
+                    <label> Profile picture </label>
+                    <div class="form-group" style="text-align:center">
+                        <input type="file" (change)="onFileChanged($event)">
+                        <div [innerHtml]='msg' *ngIf="msg" style="color: #ff0000;"></div>
+                    </div>
+
+
                     <div class="form-group">
                         <label for="fb">
                             Link to your Facebook
@@ -83,6 +90,8 @@
             </ul>				
         </div>
 
+        <!-- <div><img [src]="url" *ngIf="url" alt="yourPicture"> </div> -->
+        <div><img [src]="imgURL" height="200" *ngIf="imgURL"></div>
         <h4>Name</h4>
         <p>{{myuser}}</p>
         <h4>Education and Qualification</h4>

@@ -8,7 +8,8 @@ create table users
     age int null,
     email TEXT not null,
     password TEXT not null,
-    id_cv bigint
+    id_cv bigint,
+    id_image bigint null
 );
 
 create table cvs
@@ -21,7 +22,19 @@ create table cvs
     experience TEXT null,
     skills TEXT null,
     languages TEXT null,
-    activities TEXT null,    git TEXT null,
+    activities TEXT null,
+    git TEXT null,
     linkedin TEXT null,
     fb TEXT null
 );
+
+create table image_model
+(
+    id bigint auto_increment,
+    constraint cvs_pk
+        primary key (id),
+    name TEXT null,
+    type TEXT null,
+    pic LONGBLOB null
+)
+
