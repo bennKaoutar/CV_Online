@@ -64,7 +64,6 @@ export class CvViewComponent implements OnInit {
         })
     }
 
-
     openDialog(): void {
         const dialogRef = this.dialog.open(ContactFormComponent, {
             width: '600px',
@@ -76,16 +75,21 @@ export class CvViewComponent implements OnInit {
     }
 
     exportCV() {
-        this.cvService.getCvFile(this.cv.id).subscribe(res => this.downloadFile(res, 'application/json'));
-        console.log('fichier en cours d\'envoi');
+        this.cvService.getCv(this.cv.id).subscribe(res => {
+            this.downloadFile(res, 'application/json');
+        })
     }
 
     downloadFile(data: string, type: string) {
         const blob = new Blob([JSON.stringify(data)], {type});
         const url = window.URL.createObjectURL(blob);
-        const pwa = window.open(url);
-        if (!pwa || pwa.closed || typeof pwa.closed === 'undefined') {
-            alert('Please disable your Pop-up blocker and try again.');
-        }
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'CV_' + this.user.firstName + this.user.lastName + '.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
     }
 }

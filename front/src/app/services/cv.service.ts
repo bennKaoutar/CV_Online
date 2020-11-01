@@ -23,10 +23,6 @@ export class CvService {
         return this.http.get<Cv>(`${this.url}/cvs/${id}`).pipe(timeout(10000));
     }
 
-    getCvFile(id: number): Observable<any> {
-        return this.http.get<any>(`${this.url}/cvs/downloadCv/${id}`).pipe(timeout(10000));
-    }
-
     addCv(cv: Cv): Observable<Cv> {
         return this.http.post<any>(`${this.url}/cvs`, cv).pipe(timeout(10000));
     }

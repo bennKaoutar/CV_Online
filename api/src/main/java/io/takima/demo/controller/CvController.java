@@ -39,16 +39,6 @@ public class CvController {
        return this.cvDAO.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
-    @GetMapping("/downloadCv/{id}")
-    public ResponseEntity<String> getCvFile(@PathVariable Long id) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(getCv(id));
-        return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_JSON)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "CV" + "\"")
-                .body(json);
-    }
-
     // -------------------- POST SECTION
     @PostMapping()
     public Cv addCv(@RequestBody Cv cv) {
