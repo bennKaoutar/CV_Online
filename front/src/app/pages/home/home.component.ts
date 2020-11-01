@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,13 @@ import {Component, OnInit} from '@angular/core';
 export class HomeComponent implements OnInit {
 
   hide = false;
+  isConnected: boolean;
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.isConnected = this.authService.userConnected();
   }
 
   onWantedToSignUp(hide: boolean){

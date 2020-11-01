@@ -18,7 +18,7 @@ public class EmailController {
     public Mail sendMail(@RequestBody Mail mail) {
 
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo("cecile.vanhelleputte@gmail.com");
+        msg.setTo(mail.getEmailReceiver());
         msg.setSubject(mail.getSubject());
         msg.setText("Vous avez reçu un message de : " + mail.getNameSender() +
                 "\nSon l'adresse email : " + mail.getEmailSender() +
