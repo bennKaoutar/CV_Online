@@ -40,4 +40,8 @@ export class UserService {
     return this.http.post<any>(`${this.url}/users/setpicture/${id}`, idUser).pipe(timeout(10000));
   }
 
+  setCustom(idUser: number, id: number): Observable<User> {
+    return this.http.post<any>(`${this.url}/users/setcustom/${id}`, idUser).pipe(timeout(10000));
+  }
+
 }

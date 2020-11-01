@@ -1,23 +1,31 @@
 <div class="container">
-    <div class="col-md-12">
-        <ul class="social-network social-circle">
-            <li><a href="{{cv.fb}}" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="{{cv.git}}" class="icoGithub" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
-            <li><a href="{{cv.linkedin}}" class="icoLinkedin" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        </ul>
+    <div class="content">
+        <div class="banner" [ngStyle]="{background: bannerColor}">
+            <div class="col-md-12">
+                <ul class="social-network social-circle">
+                    <li><a href="{{cv.fb}}" class="icoFacebook" title="Facebook" target="_blank"><i
+                            class="fa fa-facebook"></i></a></li>
+                    <li><a href="{{cv.git}}" class="icoGithub" title="GitHub" target="_blank"><i
+                            class="fa fa-github"></i></a></li>
+                    <li><a href="{{cv.linkedin}}" class="icoLinkedin" title="Linkedin" target="_blank"><i
+                            class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <img height="200" [src]="convertedImage" >
-    <h4>Name</h4>
+    <img height="200" [src]="convertedImage">
+    <h4 [ngStyle]="{color: titlesColor}">Name</h4>
     <p>{{cv.user}}</p>
-    <h4>Education and Qualification</h4>
+    <h4 [ngStyle]="{color: titlesColor}">Education and Qualification</h4>
     <p>{{cv.education}}</p>
-    <h4>Work Experience</h4>
+    <h4 [ngStyle]="{color: titlesColor}">Work Experience</h4>
     <p>{{cv.experience}}</p>
-    <h4>Skills</h4>
+    <h4 [ngStyle]="{color: titlesColor}">Skills</h4>
     <p>{{cv.skills}}</p>
-    <h4>Languages</h4>
+    <h4 [ngStyle]="{color: titlesColor}">Languages</h4>
     <p>{{cv.languages}}</p>
-    <h4>Activities</h4>
+    <h4 [ngStyle]="{color: titlesColor}">Activities</h4>
     <p>{{cv.activities}}</p>
     <button mat-raised-button (click)="openDialog()">Contact {{cv.user}}</button>
+    <button mat-raised-button (click)="exportCV()"> Exporter le CV vers un fichier JSON</button>
 </div>

@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -22,6 +23,8 @@ import {CvViewComponent} from './pages/cv-view/cv-view.component';
 import {ContactFormComponent} from './pages/contact-form/contact-form.component';
 import {ListCvsComponent} from './pages/list-cvs/list-cvs.component';
 import {LoginUserComponent} from './pages/login-user/login-user.component';
+import { ExportDataComponent } from './pages/export-data/export-data.component';
+import { ColorPickerComponent } from './pages/color-picker/color-picker.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +36,9 @@ import {LoginUserComponent} from './pages/login-user/login-user.component';
         CvViewComponent,
         ListCvsComponent,
         LoginUserComponent,
-        ContactFormComponent
+        ContactFormComponent,
+        ExportDataComponent,
+        ColorPickerComponent
     ],
     imports: [
         BrowserModule,
@@ -48,7 +53,8 @@ import {LoginUserComponent} from './pages/login-user/login-user.component';
         MatButtonModule,
         MatIconModule,
         ReactiveFormsModule,
-        MatDialogModule
+        MatDialogModule,
+        MatRadioModule
     ],
     providers: [],
     bootstrap: [AppComponent]

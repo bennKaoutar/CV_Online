@@ -7,7 +7,8 @@ import {ActivatedRoute} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {ContactFormComponent} from '../contact-form/contact-form.component';
 import {ImageService} from '../../services/image.service';
-import {UserService} from "../../services/user.service";
+import {UserService} from '../../services/user.service';
+import {CustomService} from '../../services/custom.service';
 
 
 @Component({
@@ -23,10 +24,14 @@ export class CvViewComponent implements OnInit {
     base64Data: any;
     convertedImage: any;
 
+    bannerColor: any;
+    titlesColor: any;
+
 
     constructor(private cvService: CvService, private route: ActivatedRoute,
                 private authService: AuthService, private imageService: ImageService,
-                private userService: UserService, public dialog: MatDialog) {
+                private userService: UserService, private customService: CustomService,
+                public dialog: MatDialog) {
     }
 
     ngOnInit() {
@@ -36,8 +41,7 @@ export class CvViewComponent implements OnInit {
 
         this.userService.getUserFromCv(this.cv.id).subscribe(user => {
             this.user = user[0];
-            console.log(this.user);
-            if(this.user.idImage != null){
+            if (this.user.idImage != null) {
                 this.imageService.getImage(this.user.idImage)
                     .subscribe(
                         res => {
@@ -47,6 +51,15 @@ export class CvViewComponent implements OnInit {
                         },
                         err => console.log('Error Occured during getting the picture : ' + err)
                     );
+            }
+            if (this.user.idCustom != null) {
+                this.customService.getCustom(this.user.idCustom)
+                    .subscribe(
+                        custom => {
+                            this.bannerColor = custom.banner;
+                            this.titlesColor = custom.titles;
+                        }
+                    )
             }
         })
     }
@@ -60,5 +73,19 @@ export class CvViewComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             console.log('send email');
         });
+    }
+
+    exportCV() {
+        this.cvService.getCvFile(this.cv.id).subscribe(res => this.downloadFile(res, 'application/json'));
+        console.log('fichier en cours d\'envoi');
+    }
+
+    downloadFile(data: string, type: string) {
+        const blob = new Blob([JSON.stringify(data)], {type});
+        const url = window.URL.createObjectURL(blob);
+        const pwa = window.open(url);
+        if (!pwa || pwa.closed || typeof pwa.closed === 'undefined') {
+            alert('Please disable your Pop-up blocker and try again.');
+        }
     }
 }

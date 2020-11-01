@@ -68,6 +68,13 @@ public class UserController {
         return this.userDAO.save(userModified);
     }
 
+    @PostMapping("/setcustom/{id}")
+    public User setCustom(@RequestBody Long idUser, @PathVariable Long id){
+        User userModified = this.userDAO.findById(idUser).get();
+        userModified.setIdCustom(id);
+        return this.userDAO.save(userModified);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         this.userDAO.deleteById(id);

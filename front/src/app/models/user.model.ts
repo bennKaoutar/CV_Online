@@ -9,6 +9,7 @@ export class User {
   password: string;
   idCv: number;
   idImage: number;
+  idCustom: number
 
   constructor(user?: Partial<User>) {
     defaultsDeep(this, user);

@@ -6,10 +6,10 @@ import {CvService} from '../../services/cv.service';
 import {Cv} from '../../models/cv.model';
 import {AuthService} from '../../services/auth.service';
 import {User} from '../../models/user.model';
-import {HttpClient} from "@angular/common/http";
-import {UserService} from "../../services/user.service";
-import {Image} from "../../models/image.model";
-import {ImageService} from "../../services/image.service";
+import {UserService} from '../../services/user.service';
+import {Image} from '../../models/image.model';
+import {ImageService} from '../../services/image.service';
+import {CustomService} from "../../services/custom.service";
 
 @Component({
     selector: 'app-cv-template',
@@ -41,12 +41,18 @@ export class CvTemplateComponent implements OnInit {
     convertedImage: any;
     hidePicture: boolean;
 
+    bannerColor: any;
+    titlesColor: any;
+
 
     constructor(private cvService: CvService, private authService: AuthService, private userService: UserService,
-                private imageService: ImageService, private router: Router, private route: ActivatedRoute) {}
+                private imageService: ImageService, private customService: CustomService, private router: Router,
+                private route: ActivatedRoute) {
+    }
 
     ngOnInit(): void {
         this.user = this.authService.getCurrentUser();
+
         this.route.data.subscribe((data: { cv: Cv }) => this.cv = data.cv);
         this.myuser = this.user.firstName + ' ' + this.user.lastName;
         this.myeducation = this.cv.education;
@@ -56,7 +62,10 @@ export class CvTemplateComponent implements OnInit {
         this.myactivities = this.cv.activities;
         this.hidePicture = true;
 
-        if(this.user.idImage != null){
+        this.bannerColor = '#fff';
+        this.titlesColor = '#000000';
+
+        if (this.user.idImage != null) {
             this.imageService.getImage(this.user.idImage)
                 .subscribe(
                     res => {
@@ -85,12 +94,21 @@ export class CvTemplateComponent implements OnInit {
         });
         this.cvService.addCv(cv).subscribe(cv => console.log(cv));
 
-        if (this.selectedFile != null){
+        const custom = defaultsDeep({
+            banner: this.bannerColor,
+            titles: this.titlesColor
+        });
+        this.customService.setCustom(custom).subscribe(custom => {
+            this.userService.setCustom(this.user.id, custom.id).subscribe(user =>
+                this.authService.setCurrentUser(user))
+        });
+
+        if (this.selectedFile != null) {
             const uploadData = new FormData();
             uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
-            this.imageService.uploadImage(uploadData).subscribe( img => {
+            this.imageService.uploadImage(uploadData).subscribe(img => {
                 this.image = img;
-                this.userService.setPicture(this.user.id, this.image.id).subscribe( user => {
+                this.userService.setPicture(this.user.id, this.image.id).subscribe(user => {
                     this.authService.setCurrentUser(user);
                     this.router.navigateByUrl(`/cv-view/${cv.id}`)
                 });
@@ -138,6 +156,19 @@ export class CvTemplateComponent implements OnInit {
             this.msg = '';
             this.imgURL = reader.result;
         };
+    }
+
+    public setColor(type: string, color: string) {
+        switch (type) {
+            case 'banner':
+                this.bannerColor = color;
+                break;
+            case 'titles':
+                this.titlesColor = color;
+                break;
+            default:
+                break;
+        }
     }
 
 }

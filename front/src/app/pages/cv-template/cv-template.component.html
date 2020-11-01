@@ -1,7 +1,6 @@
-<h1>Default template :</h1>
-
+<h1></h1>
 <div class="row template">
-    <div class="col-sm-5 col-sm-offset-2">
+    <div class="col-sm-5">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <mat-tab-group>
                 <mat-tab label="Contact Informations">
@@ -9,7 +8,20 @@
                         <label for="user">
                             Name
                         </label>
-                        <input type="text" id="user" class="form-control" name="user" required [(ngModel)]="myuser" ngModel>
+                        <input type="text" id="user" class="form-control" name="user" required [(ngModel)]="myuser"
+                               ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label> Customize your CV ! </label>
+                        <div class="container">
+                            <div class="row">
+                                <app-color-picker [color]="bannerColor" [heading]="'Banner'"
+                                                  (event)="setColor('banner', $event)"></app-color-picker>
+
+                                <app-color-picker [color]="titlesColor" [heading]="'Titles'"
+                                                  (event)="setColor('titles', $event)"></app-color-picker>
+                            </div>
+                        </div>
                     </div>
                     <label> Profile picture </label>
                     <div class="form-group" style="text-align:center">
@@ -34,7 +46,8 @@
                         <label for="linkedin">
                             Link to your Linkedin
                         </label>
-                        <input type="text" id="linkedin" class="form-control" name="linkedin" [(ngModel)]="linkedin" ngModel>
+                        <input type="text" id="linkedin" class="form-control" name="linkedin" [(ngModel)]="linkedin"
+                               ngModel>
                     </div>
                 </mat-tab>
                 <mat-tab label="Others">
@@ -42,71 +55,85 @@
                         <label for="education">
                             Education and Qualification
                         </label>
-                        <textarea type="text" id="education" class="form-control" name="education" [(ngModel)]="myeducation" ngModel></textarea>
+                        <textarea type="text" id="education" class="form-control" name="education"
+                                  [(ngModel)]="myeducation" ngModel></textarea>
 
                         <div *ngFor="let textarea of textAreasList; let textarea_index= index; trackBy:trackByFn">
-                            <textarea type="text" name="{{textarea}}" [(ngModel)]="textAreasList[textarea_index]" [ngModelOptions]="{standalone: true}" ngModel></textarea>
-                            <button class ="btn btn-warning" type="button" (click)="removeTextArea(textarea_index)">Remove</button>
+                            <textarea type="text" name="{{textarea}}" [(ngModel)]="textAreasList[textarea_index]"
+                                      [ngModelOptions]="{standalone: true}" ngModel></textarea>
+                            <button class="btn btn-warning" type="button" (click)="removeTextArea(textarea_index)">
+                                Remove
+                            </button>
                         </div>
 
-                        <button class ="btn btn-primary" type="button" (click)="addTextarea()"> Add </button>
+                        <button class="btn btn-primary" type="button" (click)="addTextarea()"> Add</button>
                     </div>
                     <div class="form-group">
                         <label for="experience">
                             Work Experience
                         </label>
-                        <textarea type="text" id="experience" class="form-control" name="experience" [(ngModel)]="myexperience" ngModel></textarea>
+                        <textarea type="text" id="experience" class="form-control" name="experience"
+                                  [(ngModel)]="myexperience" ngModel></textarea>
                     </div>
                     <div class="form-group">
                         <label for="skills">
                             Skills
                         </label>
-                        <textarea type="text" id="skills" class="form-control" name="skills" [(ngModel)]="myskills" ngModel></textarea>
+                        <textarea type="text" id="skills" class="form-control" name="skills" [(ngModel)]="myskills"
+                                  ngModel></textarea>
                     </div>
                     <div class="form-group">
                         <label for="languages">
                             Languages
                         </label>
-                        <textarea type="text" id="languages" class="form-control" name="languages" [(ngModel)]="mylanguages" ngModel></textarea>
+                        <textarea type="text" id="languages" class="form-control" name="languages"
+                                  [(ngModel)]="mylanguages" ngModel></textarea>
                     </div>
                     <div class="form-group">
                         <label for="activities">
                             Activities
                         </label>
-                        <textarea type="text" id="activities" class="form-control" name="activities" [(ngModel)]="myactivities" ngModel></textarea>
+                        <textarea type="text" id="activities" class="form-control" name="activities"
+                                  [(ngModel)]="myactivities" ngModel></textarea>
                     </div>
                     <button class="btn btn-primary" type="submit">Ajouter</button>
                 </mat-tab>
             </mat-tab-group>
         </form>
     </div>
-    <div class="col-sm-6 col-sm-offset-2 viewCv">
-        
-        <div class="col-md-12">
-            <ul class="social-network social-circle">
-                <li><a href="{{fb}}" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="{{git}}" class="icoGithub" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
-                <li><a href="{{linkedin}}" class="icoLinkedin" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-            </ul>				
-        </div>
 
-        <!-- <div><img [src]="url" *ngIf="url" alt="yourPicture"> </div> -->
-        <div><img [src]="imgURL" height="200" *ngIf="imgURL"></div>
-        <img height="200" *ngIf="selectedFile == null" [src]="convertedImage" >
-        <h4>Name</h4>
-        <p>{{myuser}}</p>
-        <h4>Education and Qualification</h4>
-        <p>{{myeducation}}</p>
-        <div *ngFor="let textarea of textAreasList">
-            <p>{{textarea}}</p>
+    <div class="col-sm-6 col-sm-offset-2 viewCv">
+        <div class="content">
+            <div class="banner" [ngStyle]="{background: bannerColor}">
+                <div class="col-md-12">
+                    <ul class="social-network social-circle">
+                        <li><a href="{{fb}}" class="icoFacebook" title="Facebook" target="_blank"><i
+                                class="fa fa-facebook"></i></a></li>
+                        <li><a href="{{git}}" class="icoGithub" title="GitHub" target="_blank"><i
+                                class="fa fa-github"></i></a></li>
+                        <li><a href="{{linkedin}}" class="icoLinkedin" title="Linkedin" target="_blank"><i
+                                class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div><img [src]="imgURL" height="200" *ngIf="imgURL"></div>
+
+            <img height="200" *ngIf="selectedFile == null" [src]="convertedImage">
+            <h4 [ngStyle]="{color: titlesColor}">Name</h4>
+            <p>{{myuser}}</p>
+            <h4 [ngStyle]="{color: titlesColor}">Education and Qualification</h4>
+            <p>{{myeducation}}</p>
+            <div *ngFor="let textarea of textAreasList">
+                <p>{{textarea}}</p>
+            </div>
+            <h4 [ngStyle]="{color: titlesColor}">Work Experience</h4>
+            <p>{{myexperience}}</p>
+            <h4 [ngStyle]="{color: titlesColor}">Skills</h4>
+            <p>{{myskills}}</p>
+            <h4 [ngStyle]="{color: titlesColor}">Languages</h4>
+            <p>{{mylanguages}}</p>
+            <h4 [ngStyle]="{color: titlesColor}">Activities</h4>
+            <p>{{myactivities}}</p>
         </div>
-        <h4>Work Experience</h4>
-        <p>{{myexperience}}</p>
-        <h4>Skills</h4>
-        <p>{{myskills}}</p>
-        <h4>Languages</h4>
-        <p>{{mylanguages}}</p>
-        <h4>Activities</h4>
-        <p>{{myactivities}}</p>
     </div>
 </div>
