@@ -6,7 +6,8 @@ export class User {
   lastName: string;
   age: number;
   email: string;
-  password: string;
+  hash: string;
+  salt: string;
   idCv: number;
   idImage: number;
   idCustom: number

@@ -55,6 +55,7 @@
             </button>
         </mat-form-field>
         </div>
+        <mat-error *ngIf="errorMessage"> {{errorMessage}} </mat-error>
         <button class="btn btn-danger" type="button" (click)="wantToSignUp()"> Return </button>
         <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Ajouter</button>
     </form>
