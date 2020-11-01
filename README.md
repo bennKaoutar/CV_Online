@@ -43,5 +43,8 @@ Implémentation de 2 sections sur le site :
 
 Le système d'authentification et de création de compte sont sécurisés par l'algorithme PBKDF2.
 
+## Authors
+Kaoutar BENNADI, Melina MVOGO, Cecile VANHELLEPUTTE
+
 
 
