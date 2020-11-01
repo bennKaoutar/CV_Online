@@ -1,5 +1,4 @@
 #Online_CV
-Cree le 01.11.2020
 
 Site Web permettant la création, modification de CV en ligne et la publication de ces derniers. 
 
@@ -14,11 +13,12 @@ Ce projet utilise :
 1. Cloner le projet en utilisant la commande :  
 `git clone https://github.com/bennKaoutar/CV_Online.git`
 2. Exécuter votre DB mysql, si vous avez un terminal Docker rentrez la commande suivante :  
-`docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=defaultdb -p 3306:3306 -v "`pwd`/initdb:/docker-entrypoint-initdb.d" mariadb
-`  
-3. Ouvrir le dossier **api** et **front** dans deux fenêtres différentes.
-Dans le dossier **api** :  Lancer l'application Spring Boot
-Dans le dossier **front** :  
+```
+docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=defaultdb -p 3306:3306 -v "`pwd`/initdb:/docker-entrypoint-initdb.d" mariadb
+``` 
+3. Ouvrir le dossier **api** et **front** dans deux fenêtres différentes.  
+Dans le dossier **api** :  Lancer l'application Spring Boot  
+Dans le dossier **front** :   
 `cd front`   
 `npm install`  
 `ng serve`  
