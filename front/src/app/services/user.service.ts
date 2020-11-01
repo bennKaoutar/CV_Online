@@ -32,5 +32,8 @@ export class UserService {
     return this.http.post<any>(`${this.url}/users/login`, credentials).pipe(timeout(10000));
   }
 
+  setPicture(idUser: number, id: number): Observable<User> {
+    return this.http.post<any>(`${this.url}/users/setpicture/${id}`, idUser).pipe(timeout(10000));
+  }
+
 }
-//

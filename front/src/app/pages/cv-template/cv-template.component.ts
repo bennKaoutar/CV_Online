@@ -7,6 +7,9 @@ import {Cv} from '../../models/cv.model';
 import {AuthService} from '../../services/auth.service';
 import {User} from '../../models/user.model';
 import {HttpClient} from "@angular/common/http";
+import {UserService} from "../../services/user.service";
+import {Image} from "../../models/image.model";
+import {ImageService} from "../../services/image.service";
 
 @Component({
     selector: 'app-cv-template',
@@ -29,18 +32,16 @@ export class CvTemplateComponent implements OnInit {
 
     cv: Cv;
     user: User;
+    image: Image;
     selectedFile;
-    event1;
     imgURL: any;
     receivedImageData: any;
     base64Data: any;
-    convertedImage: any;
-    /*url;
-    msg = "";*/
     msg: string;
 
-    constructor(private cvService: CvService, private authService: AuthService, private router: Router,
-                private route: ActivatedRoute, private httpClient: HttpClient) {}
+
+    constructor(private cvService: CvService, private authService: AuthService, private userService: UserService,
+                private imageService: ImageService, private router: Router, private route: ActivatedRoute) {}
 
     ngOnInit(): void {
         this.user = this.authService.getCurrentUser();
@@ -66,9 +67,20 @@ export class CvTemplateComponent implements OnInit {
             git: ngForm.form.value.git,
             linkedin: ngForm.form.value.linkedin
         });
-
         this.cvService.addCv(cv).subscribe(cv => console.log(cv));
-        this.router.navigateByUrl(`/cv-view/${cv.id}`)
+
+        const uploadData = new FormData();
+        uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
+        this.imageService.uploadImage(uploadData).subscribe( img => {
+            this.image = img;
+            console.log(this.image.id, 'img id');
+            console.log(this.user, 'user');
+            this.userService.setPicture(this.user.id, this.image.id).subscribe( user => {
+                this.authService.setCurrentUser(user);
+                console.log(this.authService.getCurrentUser());
+                this.router.navigateByUrl(`/cv-view/${cv.id}`)
+            });
+        })
     }
 
     addTextarea() {
@@ -109,25 +121,6 @@ export class CvTemplateComponent implements OnInit {
             this.msg = '';
             this.imgURL = reader.result;
         };
-    }
-
-    onUpload() {
-
-        const uploadData = new FormData();
-        uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
-
-
-        this.httpClient.post('http://localhost:8080/check/upload', uploadData).subscribe()
-        this.httpClient.get('http://localhost:8080/check/image/8')
-            .subscribe(
-                res => {
-                    console.log(res);
-                    this.receivedImageData = res;
-                    this.base64Data = this.receivedImageData.pic;
-                    this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
-                },
-                err => console.log('Error Occured during saving: ' + err)
-            );
     }
 
 }

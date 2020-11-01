@@ -50,6 +50,13 @@ public class UserController {
         return this.userDAO.save(user);
     }
 
+    @PostMapping("/setpicture/{id}")
+    public User setPicture(@RequestBody Long idUser, @PathVariable Long id){
+        User userModified = this.userDAO.findById(idUser).get();
+        userModified.setIdImage(id);
+        return this.userDAO.save(userModified);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         this.userDAO.deleteById(id);

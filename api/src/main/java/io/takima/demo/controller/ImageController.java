@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/check")
+@RequestMapping("/image")
 @CrossOrigin
 public class ImageController {
 
@@ -20,11 +20,11 @@ public class ImageController {
 
     @PostMapping("/upload")
     public Image uploadImage (@RequestParam("myFile") MultipartFile file) throws IOException {
-        Image img = new Image(file.getOriginalFilename(), file.getContentType(), file.getBytes());
+        Image img = new Image(null, file.getOriginalFilename(), file.getContentType(), file.getBytes());
         return imageDAO.save(img);
     }
 
-    @GetMapping("/image/{id}")
+    @GetMapping("/{id}")
     public Image getImage(@PathVariable Long id){
         return this.imageDAO.findById(id).orElseThrow(NoSuchElementException::new);
     }

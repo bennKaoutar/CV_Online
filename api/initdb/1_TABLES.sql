@@ -8,7 +8,8 @@ create table users
     age int null,
     email TEXT not null,
     password TEXT not null,
-    id_cv bigint
+    id_cv bigint,
+    id_image bigint null
 );
 
 create table cvs

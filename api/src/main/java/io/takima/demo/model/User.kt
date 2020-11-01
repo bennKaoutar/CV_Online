@@ -14,6 +14,8 @@ data class User(
         @Column(name = "age") var age: Int?,
         @Column(name = "email") var email: String?,
         @Column(name = "password") var password: String?,
-        @Column(name = "id_cv") var idCv: Long?) {
-    constructor() : this(null, null, null, null, null, null, null)
+        @Column(name = "id_cv") var idCv: Long?,
+        @Column(name = "id_image") var idImage: Long?
+) {
+    constructor() : this(null, null,null, null, null, null, null, null)
 }
