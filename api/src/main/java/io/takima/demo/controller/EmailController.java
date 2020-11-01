@@ -1,4 +1,4 @@
-package io.takima.demo;
+package io.takima.demo.controller;
 
 import io.takima.demo.model.Mail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/mail")
 @CrossOrigin
-public class EmailService {
+public class EmailController {
 
     @Autowired
     private JavaMailSender javaMailSender;
