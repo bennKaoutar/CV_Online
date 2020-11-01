@@ -1,3 +1,4 @@
+import { MatDialogModule } from '@angular/material/dialog';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -10,7 +11,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
@@ -19,6 +19,7 @@ import {ListUsersComponent} from './pages/list-users/list-users.component';
 import {AddUserComponent} from './pages/add-user/add-user.component';
 import {CvTemplateComponent} from './pages/cv-template/cv-template.component';
 import {CvViewComponent} from './pages/cv-view/cv-view.component';
+import { ContactFormComponent } from './pages/contact-form/contact-form.component';
 import { ListCvsComponent } from './pages/list-cvs/list-cvs.component';
 import { LoginUserComponent } from './pages/login-user/login-user.component';
 
@@ -31,7 +32,8 @@ import { LoginUserComponent } from './pages/login-user/login-user.component';
         HomeComponent,
         CvViewComponent,
         ListCvsComponent,
-        LoginUserComponent
+        LoginUserComponent,
+        ContactFormComponent
     ],
     imports: [
         BrowserModule,
