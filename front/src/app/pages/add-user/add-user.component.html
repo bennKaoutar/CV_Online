@@ -1,27 +1,61 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <h1 class="card_title"> To register please fill the form below : </h1>
+    <h2 class="center"> Personnal Informations </h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group fg">
+            <mat-form-field appearance="outline" class="inputArea">
+                <mat-label>First Name</mat-label>
+                <input matInput id="firstName" name="firstName" formControlName="firstname"
+                       required>
+                <mat-error *ngIf="firstname.invalid">
+                    Firstname is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="form-group fg">
+            <mat-form-field appearance="outline" class="inputArea">
+                <mat-label>Last Name</mat-label>
+                <input matInput id="lastName" name="lastName" formControlName="lastname"
+                       required>
+                <mat-error *ngIf="lastname.invalid">
+                    Lastname is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="form-group fg">
+            <mat-form-field appearance="outline" class="inputArea">
+                <mat-label>Age</mat-label>
+                <input matInput id="age" name="age" formControlName="age">
+            </mat-form-field>
+        </div>
+        <h2 class="center"> ~ Identification Informations ~ </h2>
         <div class="form-group">
-          <label for="firstName">
-            First Name
-          </label>
-          <input type="text" id="firstName" class="form-control" name="firstName" ngModel>
+            <mat-form-field appearance="fill" class="inputArea">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com"
+                       id="email"
+                       formControlName="email"
+                       required>
+                <mat-error *ngIf="email.invalid">
+                    Not a valid email
+                </mat-error>
+            </mat-form-field>
         </div>
         <div class="form-group">
-          <label for="lastName">
-            Last Name
-          </label>
-          <input type="text" id="lastName" class="form-control" name="lastName" ngModel>
+        <mat-form-field appearance="fill" class="inputArea">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" id="password"
+                   name="password" formControlName="password" required>
+            <mat-error *ngIf="password.invalid">
+                Password is required
+            </mat-error>
+            <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
         </div>
-        <div class="form-group">
-          <label for="age">
-            Age
-          </label>
-          <input type="text" id="age" class="form-control" name="age" ngModel>
-        </div>
-        <button class="btn btn-primary" type="submit">Ajouter</button>
-      </form>
-    </div>
-  </div>
+        <button class="btn btn-danger" type="button" (click)="wantToSignUp()"> Return </button>
+        <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Ajouter</button>
+    </form>
 </div>

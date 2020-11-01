@@ -1,0 +1,36 @@
+<div class="container">
+    <h2 class="center"> Sign In : </h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group fg">
+            <mat-form-field appearance="fill" class="inputArea">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com"
+                       id="email"
+                       formControlName="email"
+                       required>
+                <mat-error *ngIf="email.invalid">
+                    Not a valid email
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="form-group fg">
+            <mat-form-field appearance="fill" class="inputArea">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" id="password"
+                       name="password" formControlName="password" required>
+                <mat-error *ngIf="password.invalid">
+                    Password is required
+                </mat-error>
+                <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <p class="right"><a href="#" (click)="wantToSignUp()">I don't have an account yet.</a></p>
+        <mat-error *ngIf="errorMessage"> {{errorMessage}} </mat-error>
+        <div>
+            <button class="btn btn-primary inputArea" type="submit" [disabled]="!loginForm.valid">Connect</button>
+        </div>
+    </form>
+</div>

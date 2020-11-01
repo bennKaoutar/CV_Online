@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {AuthService} from './services/auth.service';
+import {User} from './models/user.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+    user : User;
+
+    constructor(private authService: AuthService, private router: Router) {}
+
+    userConnected() {
+        const connected = this.authService.userConnected();
+        if(connected){
+            this.user = this.authService.getCurrentUser();
+        }
+        return connected;
+    }
+
+    logOut() {
+        this.authService.deleteCurrentUser();
+        this.router.navigateByUrl('/')
+    }
 }

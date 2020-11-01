@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import { defaultsDeep } from 'lodash';
-import {Router} from '@angular/router';
+import {defaultsDeep} from 'lodash';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CvService} from '../../services/cv.service';
+import {Cv} from '../../models/cv.model';
+import {AuthService} from '../../services/auth.service';
+import {User} from '../../models/user.model';
 
 @Component({
   selector: 'app-cv-template',
@@ -23,15 +26,25 @@ export class CvTemplateComponent implements OnInit {
   textAreasList:any = [];
   test: any;
 
-  constructor(private cvService: CvService, private router: Router) { }
+  cv: Cv;
+  user: User;
+
+  constructor(private cvService: CvService, private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.user =  this.authService.getCurrentUser();
+    this.route.data.subscribe((data: { cv: Cv }) => this.cv = data.cv);
+    this.myuser = this.user.firstName + ' ' + this.user.lastName;
+    this.myeducation = this.cv.education;
+    this.myexperience = this.cv.experience;
+    this.myskills = this.cv.skills;
+    this.mylanguages = this.cv.languages;
+    this.myactivities = this.cv.activities;
   }
 
   onSubmit(ngForm: NgForm) {
-    console.log(ngForm);
     const cv = defaultsDeep({
-      id: null,
+      id: this.cv.id,
       user: ngForm.form.value.user,
       education: ngForm.form.value.education,
       experience: ngForm.form.value.experience,
@@ -44,7 +57,7 @@ export class CvTemplateComponent implements OnInit {
     });
 
     this.cvService.addCv(cv).subscribe(cv => console.log(cv));
-    this.router.navigateByUrl('/')
+    this.router.navigateByUrl(`/cv-view/${cv.id}`)
   }
 
   addTextarea(){
