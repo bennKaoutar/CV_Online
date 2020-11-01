@@ -1,4 +1,4 @@
-#Online_CV
+# Online_CV
 
 Site Web permettant la création, modification de CV en ligne et la publication de ces derniers. 
 
@@ -31,7 +31,7 @@ Lancer les scripts présents dans le dossier initdb.
 
 Implémentation de 2 sections sur le site :
 * Section Publique 
-    * Accès au Cv des utilisateurs
+    * Accès au CV des utilisateurs
     * Possibilité de contacter le propriétaire du CV par mail
     * Exportation du CV sous format JSON vers un fichier .txt externe
     
@@ -39,7 +39,8 @@ Implémentation de 2 sections sur le site :
     * Création, modification de toutes les sections du CV (experience, education, skills, languages, hobbies)
     * Edition du nom, email, photo de profil, bannière
     * Lien vers les réseaux sociaux professionnels : LinkedIn, Git, Facebook
-    * Customisation des couleurs de la bannière et des titres des sections    
+    * Customisation des couleurs de la bannière et des titres des sections   
+    (Source du color-picker: https://github.com/dancornilov/color-picker.git)
 
 Le système d'authentification et de création de compte sont sécurisés par l'algorithme PBKDF2.
 
