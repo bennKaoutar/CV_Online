@@ -10,6 +10,9 @@ import {ImageService} from '../../services/image.service';
 import {UserService} from '../../services/user.service';
 import {CustomService} from '../../services/custom.service';
 
+export interface UserData {
+    emailReceiver: string;
+}
 
 @Component({
     selector: 'app-cv-view',
@@ -67,6 +70,7 @@ export class CvViewComponent implements OnInit {
     openDialog(): void {
         const dialogRef = this.dialog.open(ContactFormComponent, {
             width: '600px',
+            data: {emailReceiver: this.user.email}
         });
 
         dialogRef.afterClosed().subscribe(result => {
