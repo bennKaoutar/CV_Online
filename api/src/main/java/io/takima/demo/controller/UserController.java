@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.takima.demo.dao.UserDAO;
+import io.takima.demo.model.Cv;
 import io.takima.demo.model.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,13 @@ public class UserController {
         this.userDAO = userDAO;
     }
 
+    @GetMapping()
+    public List<User> getUsers() {
+        Iterable<User> it = this.userDAO.findAll();
+        List<User> users = new ArrayList<>();
+        it.forEach(e -> users.add(e));
+        return users;
+    }
 
     @GetMapping("/fromcv/{id_cv}")
     public List<User> getUserFromCv(@PathVariable Long id_cv) {
@@ -110,6 +118,14 @@ public class UserController {
         return this.userDAO.save(user);
     }
 
+    @PutMapping("/email")
+    public void setEmail(@RequestBody ObjectNode emailUser) {
+        String email = emailUser.get("email").asText();
+        Long id = emailUser.get("id").asLong();
+        User userModified = this.userDAO.findById(id).get();
+        userModified.setEmail(email);
+    }
+
     @PostMapping("/setpicture/{id}")
     public User setPicture(@RequestBody Long idUser, @PathVariable Long id) {
         User userModified = this.userDAO.findById(idUser).get();
@@ -123,6 +139,5 @@ public class UserController {
         userModified.setIdCustom(id);
         return this.userDAO.save(userModified);
     }
-
 
 }

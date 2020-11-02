@@ -12,9 +12,9 @@ import {AddUserComponent} from './pages/add-user/add-user.component';
 import {CvTemplateComponent} from './pages/cv-template/cv-template.component';
 import {CvViewComponent} from './pages/cv-view/cv-view.component';
 import {ContactFormComponent} from './pages/contact-form/contact-form.component';
-import {ListCvsComponent} from './pages/list-cvs/list-cvs.component';
 import {LoginUserComponent} from './pages/login-user/login-user.component';
 import { ColorPickerComponent } from './pages/color-picker/color-picker.component';
+import { ListUsersComponent } from './pages/list-users/list-users.component';
 
 @NgModule({
     declarations: [
@@ -23,10 +23,10 @@ import { ColorPickerComponent } from './pages/color-picker/color-picker.componen
         CvTemplateComponent,
         HomeComponent,
         CvViewComponent,
-        ListCvsComponent,
         LoginUserComponent,
         ContactFormComponent,
-        ColorPickerComponent
+        ColorPickerComponent,
+        ListUsersComponent
     ],
     imports: [
         BrowserModule,

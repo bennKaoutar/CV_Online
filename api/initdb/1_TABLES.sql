@@ -19,7 +19,6 @@ create table cvs
     id         bigint auto_increment,
     constraint cvs_pk
         primary key (id),
-    user       TEXT null,
     education  TEXT null,
     experience TEXT null,
     skills     TEXT null,

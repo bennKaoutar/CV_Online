@@ -8,10 +8,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let cv of cvs">
-        <td>{{cv.id}}</td>
-        <td>{{cv.user}}</td>
-        <td><button type="button" class="btn btn-danger deleteButton" (click)="goToCvView(cv.id)">See CV</button></td>
+    <tr *ngFor="let user of users">
+        <td>{{user.idCv}}</td>
+        <td>{{user.firstName}}  {{user.lastName}}</td>
+        <td><button type="button" class="btn btn-danger deleteButton" (click)="goToCvView(user.idCv)">See CV</button></td>
     </tr>
     </tbody>
 </table>

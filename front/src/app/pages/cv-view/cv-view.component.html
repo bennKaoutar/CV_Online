@@ -15,7 +15,7 @@
     </div>
     <img height="200" [src]="convertedImage">
     <h2 [ngStyle]="{color: titlesColor}">Name</h2>
-    <p>{{cv.user}}</p>
+    <p>{{user.firstName}} {{user.lastName}}</p>
     <h2 [ngStyle]="{color: titlesColor}">Education and Qualification</h2>
     <p>{{cv.education}}</p>
     <h2 [ngStyle]="{color: titlesColor}">Work Experience</h2>
@@ -26,6 +26,6 @@
     <p>{{cv.languages}}</p>
     <h2 [ngStyle]="{color: titlesColor}">Activities</h2>
     <p>{{cv.activities}}</p>
-    <button mat-raised-button (click)="openDialog()">Contact {{cv.user}}</button>
+    <button mat-raised-button (click)="openDialog()">Contact {{user.firstName}} {{user.lastName}}</button>
     <button mat-raised-button (click)="exportCV()"> Export CV in JSON</button>
 </div>

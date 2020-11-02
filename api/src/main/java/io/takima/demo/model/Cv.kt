@@ -6,7 +6,6 @@ import javax.persistence.*
 data class Cv(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Id var id: Long?,
-        @Column(name = "user") var user: String?,
         @Column(name = "education") var education: String?,
         @Column(name = "experience") var experience: String?,
         @Column(name = "skills") var skills: String?,
@@ -16,5 +15,5 @@ data class Cv(
         @Column(name= "linkedin") var linkedin:String?,
         @Column(name= "fb") var fb:String?)
 {
-    constructor() : this(null, null, null, null, null, null, null, null,null,null)
+    constructor() : this(null, null, null, null, null, null, null,null,null)
 }

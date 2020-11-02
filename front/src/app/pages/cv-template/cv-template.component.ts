@@ -20,6 +20,7 @@ export class CvTemplateComponent implements OnInit {
 
     // ngModels used in the form
     myuser: any;
+    myemail: any;
     myeducation: any;
     myexperience: any;
     myskills: any;
@@ -59,6 +60,7 @@ export class CvTemplateComponent implements OnInit {
         this.route.data.subscribe((data: { cv: Cv }) => this.cv = data.cv);
         // set inputs with the existing data
         this.myuser = this.user.firstName + ' ' + this.user.lastName;
+        this.myemail = this.user.email;
         this.myeducation = this.cv.education;
         this.myexperience = this.cv.experience;
         this.myskills = this.cv.skills;
@@ -100,7 +102,14 @@ export class CvTemplateComponent implements OnInit {
      * Submit CV form
      */
     onSubmit(ngForm: NgForm) {
-        // get data from the form
+        // Modify email address
+        const emailUser = defaultsDeep({
+            id: this.user.id,
+            email: this.user.email
+        });
+        this.userService.setEmail(emailUser);
+
+        // Modify CV
         const cv = defaultsDeep({
             id: this.cv.id,
             user: ngForm.form.value.user,
@@ -113,7 +122,7 @@ export class CvTemplateComponent implements OnInit {
             git: ngForm.form.value.git,
             linkedin: ngForm.form.value.linkedin
         });
-        this.cvService.addCv(cv).subscribe(cv => console.log(cv)); // modify the cv
+        this.cvService.addCv(cv).subscribe(cv => console.log(cv));
 
         // get custom data
         const custom = defaultsDeep({

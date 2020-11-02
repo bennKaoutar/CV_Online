@@ -16,6 +16,9 @@ export class UserService {
     this.url = environment.url;
   }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}/users`).pipe(timeout(10000));
+  }
 
   getUserFromCv(id: number): Observable<any> {
     return this.http.get<User[]>(`${this.url}/users/fromcv/${id}`).pipe(timeout(10000));
@@ -31,6 +34,10 @@ export class UserService {
 
   checkUser(credentials: object): Observable<User[]> {
     return this.http.post<any>(`${this.url}/users/login`, credentials).pipe(timeout(10000));
+  }
+
+  setEmail(emailUser: object): Observable<User> {
+    return this.http.put<any>(`${this.url}/users/email`, emailUser).pipe(timeout(10000));
   }
 
   setPicture(idUser: number, id: number): Observable<User> {
