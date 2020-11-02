@@ -62,6 +62,9 @@ export class CvTemplateComponent implements OnInit {
         // set inputs with the existing data
         this.myuser = this.user.firstName + ' ' + this.user.lastName;
         this.myemail = this.user.email;
+        this.git = this.cv.git;
+        this.linkedin = this.cv.linkedin;
+        this.fb = this.cv.fb;
         this.myeducation = this.cv.education;
         this.myexperience = this.cv.experience;
         this.myskills = this.cv.skills;
