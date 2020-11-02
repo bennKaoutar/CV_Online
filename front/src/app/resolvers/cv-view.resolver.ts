@@ -11,6 +11,9 @@ export class CvViewResolver implements Resolve<Cv> {
 
     constructor(private cvService: CvService) {}
 
+    /**
+     * Return the CV's data of the selected CV
+     */
     resolve(route: ActivatedRouteSnapshot): Observable<Cv> {
         return this.cvService.getCv(route.params.id);
     }

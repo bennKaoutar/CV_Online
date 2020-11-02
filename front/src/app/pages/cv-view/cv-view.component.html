@@ -14,17 +14,17 @@
         </div>
     </div>
     <img height="200" [src]="convertedImage">
-    <h4 [ngStyle]="{color: titlesColor}">Name</h4>
+    <h2 [ngStyle]="{color: titlesColor}">Name</h2>
     <p>{{cv.user}}</p>
-    <h4 [ngStyle]="{color: titlesColor}">Education and Qualification</h4>
+    <h2 [ngStyle]="{color: titlesColor}">Education and Qualification</h2>
     <p>{{cv.education}}</p>
-    <h4 [ngStyle]="{color: titlesColor}">Work Experience</h4>
+    <h2 [ngStyle]="{color: titlesColor}">Work Experience</h2>
     <p>{{cv.experience}}</p>
-    <h4 [ngStyle]="{color: titlesColor}">Skills</h4>
+    <h2 [ngStyle]="{color: titlesColor}">Skills</h2>
     <p>{{cv.skills}}</p>
-    <h4 [ngStyle]="{color: titlesColor}">Languages</h4>
+    <h2 [ngStyle]="{color: titlesColor}">Languages</h2>
     <p>{{cv.languages}}</p>
-    <h4 [ngStyle]="{color: titlesColor}">Activities</h4>
+    <h2 [ngStyle]="{color: titlesColor}">Activities</h2>
     <p>{{cv.activities}}</p>
     <button mat-raised-button (click)="openDialog()">Contact {{cv.user}}</button>
     <button mat-raised-button (click)="exportCV()"> Exporter le CV vers un fichier JSON</button>

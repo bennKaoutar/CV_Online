@@ -17,21 +17,28 @@ export class ContactFormComponent implements OnInit {
   subject: any;
   message: any;
 
+  // @Inject : get the email address of the cv's owner
   constructor(public dialogRef: MatDialogRef<ContactFormComponent>, private mailService: MailService,
               @Inject(MAT_DIALOG_DATA) public user: UserData) { }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Close Dialog Box - click Return button
+   */
   onNoClick(): void {
     this.dialogRef.close();
   }
 
+  /**
+   * Submission of the contact form, create and send email
+   */
   onSubmit(ngForm: NgForm) {
     const mail = defaultsDeep({
       nameSender: ngForm.form.value.name,
       emailSender: ngForm.form.value.email,
-      emailReceiver : this.user.emailReceiver,
+      emailReceiver : this.user.emailCv, // the email will be send to the cv's owner
       subject: ngForm.form.value.subject,
       message: ngForm.form.value.message,
     });

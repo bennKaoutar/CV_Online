@@ -119,20 +119,20 @@
             <div><img [src]="imgURL" height="200" *ngIf="imgURL"></div>
 
             <img height="200" *ngIf="selectedFile == null" [src]="convertedImage">
-            <h4 [ngStyle]="{color: titlesColor}">Name</h4>
+            <h2 [ngStyle]="{color: titlesColor}">Name</h2>
             <p>{{myuser}}</p>
-            <h4 [ngStyle]="{color: titlesColor}">Education and Qualification</h4>
+            <h2 [ngStyle]="{color: titlesColor}">Education and Qualification</h2>
             <p>{{myeducation}}</p>
             <div *ngFor="let textarea of textAreasList">
                 <p>{{textarea}}</p>
             </div>
-            <h4 [ngStyle]="{color: titlesColor}">Work Experience</h4>
+            <h2 [ngStyle]="{color: titlesColor}">Work Experience</h2>
             <p>{{myexperience}}</p>
-            <h4 [ngStyle]="{color: titlesColor}">Skills</h4>
+            <h2 [ngStyle]="{color: titlesColor}">Skills</h2>
             <p>{{myskills}}</p>
-            <h4 [ngStyle]="{color: titlesColor}">Languages</h4>
+            <h2 [ngStyle]="{color: titlesColor}">Languages</h2>
             <p>{{mylanguages}}</p>
-            <h4 [ngStyle]="{color: titlesColor}">Activities</h4>
+            <h2 [ngStyle]="{color: titlesColor}">Activities</h2>
             <p>{{myactivities}}</p>
         </div>
     </div>

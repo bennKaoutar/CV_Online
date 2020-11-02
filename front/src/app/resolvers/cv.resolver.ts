@@ -12,6 +12,9 @@ export class CvResolver implements Resolve<Cv> {
 
     constructor(private cvService: CvService, private authService: AuthService) {}
 
+    /**
+     * return the CV's data of the current user
+     */
     resolve(): Observable<Cv> {
         return this.cvService.getCv(this.authService.getCurrentUser().idCv);
     }

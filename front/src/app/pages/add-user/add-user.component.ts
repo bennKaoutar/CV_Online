@@ -4,7 +4,6 @@ import {UserService} from '../../services/user.service';
 import {defaultsDeep} from 'lodash';
 import {Router} from '@angular/router';
 import {CvService} from '../../services/cv.service';
-import {Cv} from '../../models/cv.model';
 import {AuthService} from '../../services/auth.service';
 
 @Component({
@@ -13,15 +12,17 @@ import {AuthService} from '../../services/auth.service';
     styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-    private errorMessage: string;
 
-    constructor(private userService: UserService, private cvService: CvService, private authService: AuthService, private router: Router) {
-    }
+    constructor(private userService: UserService, private cvService: CvService, private authService: AuthService,
+                private router: Router) {}
 
+    // EventEmitter to know when the user want to go back to the SignIn panel
     @Output() wantedToSignUp = new EventEmitter<boolean>();
-    userForm: FormGroup;
-    hide = true;
-    newCv: Cv;
+
+    userForm: FormGroup; // SignUp form
+    errorMessage: string; // error message if the email already exists in db
+    hide = true; // variable for the password visibility
+
 
     ngOnInit(): void {
         this.userForm = new FormGroup({
@@ -33,15 +34,24 @@ export class AddUserComponent implements OnInit {
         })
     }
 
+    /**
+     * EventEmitter to quit SignUp and go to SignIn
+     */
     wantToSignUp() {
         this.wantedToSignUp.emit(false);
     }
 
+    /**
+     * Submit of the SignUp form
+     */
     onSubmit() {
+        // Get credentials (email and pwd)
         let credentials = defaultsDeep({
             email: this.userForm.value.email,
             password: this.userForm.value.password
         })
+        // Creation of secure credentials (will be stored in db : hash and salt)
+        // Check in backend if email is unique
         this.userService.createCredentials(credentials).subscribe(
             credentialsSecurise => {
                 credentials = credentialsSecurise;
@@ -49,6 +59,7 @@ export class AddUserComponent implements OnInit {
                     this.errorMessage = 'A user with this email address already exist.';
                 } else {
                     const cv = defaultsDeep({});
+                    // Creation of an empty CV, get its id to set it in the user table
                     this.cvService.addCv(cv).subscribe(cv => {
                         const userNew = defaultsDeep({
                             id: null,
@@ -60,9 +71,10 @@ export class AddUserComponent implements OnInit {
                             salt: credentials.salt,
                             idCv: cv.id
                         });
+                        // add new user
                         this.userService.addUser(userNew).subscribe(user => {
+                            // set of the current user
                             this.authService.setCurrentUser(user);
-                            console.log(this.authService.getCurrentUser());
                             this.router.navigateByUrl(`/cv-template`).then();
                         });
                     });
@@ -86,6 +98,5 @@ export class AddUserComponent implements OnInit {
     get password() {
         return this.userForm.get('password')
     }
-
 
 }
