@@ -1,6 +1,7 @@
 # Online_CV
 
-Site Web permettant la création, modification de CV en ligne et la publication de ces derniers. 
+Site Web permettant la création, modification de CV en ligne et la publication de ces derniers.  
+**Un screenshot des pages du site est disponible dans le wiki associé à ce git : 2 pages (AdministratorView et PublicView).**  
 
 ## Getting Started 
 Ce projet utilise :
