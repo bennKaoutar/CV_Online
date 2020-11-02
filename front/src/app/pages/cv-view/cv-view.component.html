@@ -3,11 +3,11 @@
         <div class="banner" [ngStyle]="{background: bannerColor}">
             <div class="col-md-12">
                 <ul class="social-network social-circle">
-                    <li><a href="{{cv.fb}}" class="icoFacebook" title="Facebook" target="_blank"><i
+                    <li><a href="{{cv.fb}}" *ngIf="cv.fb != null" class="icoFacebook" title="Facebook" target="_blank"><i
                             class="fa fa-facebook"></i></a></li>
-                    <li><a href="{{cv.git}}" class="icoGithub" title="GitHub" target="_blank"><i
+                    <li><a href="{{cv.git}}" *ngIf="cv.git != null" class="icoGithub" title="GitHub" target="_blank"><i
                             class="fa fa-github"></i></a></li>
-                    <li><a href="{{cv.linkedin}}" class="icoLinkedin" title="Linkedin" target="_blank"><i
+                    <li><a href="{{cv.linkedin}}" *ngIf="cv.linkedin != null" class="icoLinkedin" title="Linkedin" target="_blank"><i
                             class="fa fa-linkedin"></i></a></li>
                 </ul>
             </div>
@@ -27,5 +27,5 @@
     <h2 [ngStyle]="{color: titlesColor}">Activities</h2>
     <p>{{cv.activities}}</p>
     <button mat-raised-button (click)="openDialog()">Contact {{cv.user}}</button>
-    <button mat-raised-button (click)="exportCV()"> Exporter le CV vers un fichier JSON</button>
+    <button mat-raised-button (click)="exportCV()"> Export CV in JSON</button>
 </div>

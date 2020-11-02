@@ -25,7 +25,7 @@ public class CvController {
         this.cvDAO = cvDAO;
     }
 
-    // -------------------- GET SECTION
+
     @GetMapping()
     public List<Cv> getCvs() {
         Iterable<Cv> it = this.cvDAO.findAll();
@@ -39,7 +39,7 @@ public class CvController {
        return this.cvDAO.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
-    // -------------------- POST SECTION
+
     @PostMapping()
     public Cv addCv(@RequestBody Cv cv) {
         return this.cvDAO.save(cv);

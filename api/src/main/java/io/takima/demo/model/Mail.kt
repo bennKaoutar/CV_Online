@@ -6,5 +6,4 @@ class Mail (
         var emailReceiver: String,
         var subject: String,
         var message: String
-){
-}
+)

@@ -16,10 +16,12 @@ public class EmailController {
 
     @PostMapping
     public Mail sendMail(@RequestBody Mail mail) {
-
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo(mail.getEmailReceiver());
+
+        msg.setTo(mail.getEmailReceiver()); // email address of the cv's owner
         msg.setSubject(mail.getSubject());
+
+        // template of generic message
         msg.setText("Vous avez reçu un message de : " + mail.getNameSender() +
                 "\nSon l'adresse email : " + mail.getEmailSender() +
                 "\n\n Message : \n\n" + mail.getMessage());

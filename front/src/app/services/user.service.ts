@@ -16,9 +16,6 @@ export class UserService {
     this.url = environment.url;
   }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.url}/users`).pipe(timeout(10000));
-  }
 
   getUserFromCv(id: number): Observable<any> {
     return this.http.get<User[]>(`${this.url}/users/fromcv/${id}`).pipe(timeout(10000));

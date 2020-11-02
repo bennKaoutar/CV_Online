@@ -25,6 +25,5 @@ export class AppComponent {
     logOut() {
         this.authService.deleteCurrentUser();
         this.router.navigateByUrl('/')
-        window.location.reload(); // (in case of the user logs out on Home page)
     }
 }

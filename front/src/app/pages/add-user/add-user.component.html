@@ -47,7 +47,7 @@
                 <input matInput [type]="hide ? 'password' : 'text'" id="password"
                        name="password" formControlName="password" required>
                 <mat-error *ngIf="password.invalid">
-                    Password is required
+                    The password must contain at least 6 characters.
                 </mat-error>
                 <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
                         [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
