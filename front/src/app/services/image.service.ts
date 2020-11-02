@@ -22,4 +22,8 @@ export class ImageService {
     uploadImage(img: FormData): Observable<Image> {
         return this.http.post<any>(`${this.url}/image/upload`, img).pipe(timeout(10000));
     }
+
+    deleteImage(id: number): Observable<any> {
+        return this.http.delete(`${this.url}/image/delete/${id}`).pipe(timeout(10000));
+    }
 }

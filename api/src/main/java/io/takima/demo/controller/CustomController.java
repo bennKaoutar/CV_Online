@@ -24,4 +24,9 @@ public class CustomController {
     public Custom getCustom (@PathVariable Long id){
         return this.customDAO.findById(id).orElseThrow(NoSuchElementException::new);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteCustom(@PathVariable Long id){
+        this.customDAO.deleteById(id);
+    }
 }

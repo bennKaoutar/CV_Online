@@ -22,4 +22,8 @@ export class CustomService {
     setCustom(custom: Custom): Observable<Custom> {
         return this.http.post<any>(`${this.url}/custom`, custom).pipe(timeout(10000));
     }
+
+    deleteCustom(id: number): Observable<any> {
+        return this.http.delete(`${this.url}/custom/delete/${id}`).pipe(timeout(10000));
+    }
 }

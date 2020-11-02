@@ -108,7 +108,7 @@
                         <textarea type="text" id="activities" class="form-control" name="activities"
                                   [(ngModel)]="myactivities" ngModel></textarea>
                     </div>
-                    <button class="btn btn-primary" type="submit">Ajouter</button>
+                    <button class="btn btn-primary" type="submit"> Modify </button>
                 </mat-tab>
             </mat-tab-group>
         </form>
@@ -131,21 +131,21 @@
         <div><img [src]="imgURL" height="200" *ngIf="imgURL"></div>
 
         <img height="200" *ngIf="selectedFile == null" [src]="convertedImage">
-        <h2 [ngStyle]="{color: titlesColor}">Name</h2>
-        <p>{{myuser}}</p>
+        <pre class="h2">{{myuser}}</pre>
+        <pre class="h6">{{user.email}}</pre>
         <h2 [ngStyle]="{color: titlesColor}">Education and Qualification</h2>
-        <pre>{{myeducation}}</pre>
+        <pre class="h6">{{myeducation}}</pre>
         <div *ngFor="let textarea of textAreasList">
             <p>{{textarea}}</p>
         </div>
         <h2 [ngStyle]="{color: titlesColor}">Work Experience</h2>
-        <pre>{{myexperience}}</pre>
+        <pre class="h6">{{myexperience}}</pre>
         <h2 [ngStyle]="{color: titlesColor}">Skills</h2>
-        <pre>{{myskills}}</pre>
+        <pre class="h6">{{myskills}}</pre>
         <h2 [ngStyle]="{color: titlesColor}">Languages</h2>
-        <pre>{{mylanguages}}</pre>
+        <pre class="h6">{{mylanguages}}</pre>
         <h2 [ngStyle]="{color: titlesColor}">Activities</h2>
-        <pre>{{myactivities}}</pre>
+        <pre class="h6">{{myactivities}}</pre>
     </div>
 </div>
 

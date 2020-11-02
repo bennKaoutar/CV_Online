@@ -10,6 +10,7 @@ import {UserService} from '../../services/user.service';
 import {Image} from '../../models/image.model';
 import {ImageService} from '../../services/image.service';
 import {CustomService} from '../../services/custom.service';
+import {waitForAsync} from "@angular/core/testing";
 
 @Component({
     selector: 'app-cv-template',
@@ -107,7 +108,7 @@ export class CvTemplateComponent implements OnInit {
             id: this.user.id,
             email: this.user.email
         });
-        this.userService.setEmail(emailUser);
+        this.userService.setEmail(emailUser).subscribe();
 
         // Modify CV
         const cv = defaultsDeep({
@@ -122,9 +123,13 @@ export class CvTemplateComponent implements OnInit {
             git: ngForm.form.value.git,
             linkedin: ngForm.form.value.linkedin
         });
-        this.cvService.addCv(cv).subscribe(cv => console.log(cv));
+        this.cvService.addCv(cv).subscribe();
 
-        // get custom data
+        // delete old custom data
+        if(this.user.idCustom != null) {
+            this.customService.deleteCustom(this.user.idCustom).subscribe();
+        }
+        // get new custom data
         const custom = defaultsDeep({
             banner: this.bannerColor,
             titles: this.titlesColor
@@ -137,6 +142,7 @@ export class CvTemplateComponent implements OnInit {
 
         // get profile picture
         if (this.selectedFile != null) {
+            this.imageService.deleteImage(this.user.idImage).subscribe();
             const uploadData = new FormData();
             uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
             // add picture, set id_image into users table, refresh of the currentUser
@@ -144,12 +150,10 @@ export class CvTemplateComponent implements OnInit {
                 this.image = img;
                 this.userService.setPicture(this.user.id, this.image.id).subscribe(user => {
                     this.authService.setCurrentUser(user);
-                    this.router.navigateByUrl(`/cv-view/${cv.id}`)
                 });
             })
-        } else {
-            this.router.navigateByUrl(`/cv-view/${cv.id}`)
         }
+        this.router.navigateByUrl(`/`);
     }
 
     /**

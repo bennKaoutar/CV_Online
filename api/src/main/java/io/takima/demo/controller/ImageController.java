@@ -29,5 +29,10 @@ public class ImageController {
         return this.imageDAO.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteImage(@PathVariable Long id){
+        this.imageDAO.deleteById(id);
+    }
+
 
 }
