@@ -6,19 +6,17 @@ import {User} from '../models/user.model';
 })
 export class AuthService {
 
-    constructor() {
-    }
+    constructor() {}
 
     setCurrentUser(user: User) {
-        if(user != null){
-            localStorage.setItem('currentUser', JSON.stringify(user));
-        }
+        localStorage.setItem('currentUser', JSON.stringify(user));
     }
 
     getCurrentUser(): User {
         return JSON.parse(localStorage.getItem('currentUser'));
     }
 
+    // delete current user when log out
     deleteCurrentUser(){
         localStorage.removeItem('currentUser');
     }

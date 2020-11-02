@@ -16,9 +16,12 @@ export class ListCvsComponent implements OnInit {
   constructor(private cvService: CvService, private router: Router) { }
 
   ngOnInit(): void {
-    this.cvService.getCvs().subscribe(cvs => this.cvs = cvs);
+    this.cvService.getCvs().subscribe(cvs => this.cvs = cvs); // display the CV of the users
   }
 
+  /**
+   * To navigate to CV View
+   */
   goToCvView(id: number){
     this.router.navigateByUrl(`/cv-view/${id}`);
   }

@@ -11,7 +11,7 @@ import {UserService} from '../../services/user.service';
 import {CustomService} from '../../services/custom.service';
 
 export interface UserData {
-    emailReceiver: string;
+    emailCv: string;
 }
 
 @Component({
@@ -38,12 +38,15 @@ export class CvViewComponent implements OnInit {
     }
 
     ngOnInit() {
+        // Resolver to wait for the CV data
         this.route.data.subscribe((data: { cv: Cv }) => {
             this.cv = data.cv;
         });
 
+        // Get the CV's owner data
         this.userService.getUserFromCv(this.cv.id).subscribe(user => {
             this.user = user[0];
+            // if the owner has a profile picture, then display it
             if (this.user.idImage != null) {
                 this.imageService.getImage(this.user.idImage)
                     .subscribe(
@@ -52,9 +55,10 @@ export class CvViewComponent implements OnInit {
                             this.base64Data = this.receivedImageData.pic;
                             this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
                         },
-                        err => console.log('Error Occured during getting the picture : ' + err)
+                        err => console.log('Error Occured while getting the picture : ' + err)
                     );
             }
+            // if the owner has customs, then display them
             if (this.user.idCustom != null) {
                 this.customService.getCustom(this.user.idCustom)
                     .subscribe(
@@ -67,23 +71,30 @@ export class CvViewComponent implements OnInit {
         })
     }
 
+    /**
+     * Open DialogBox - contact form
+     */
     openDialog(): void {
         const dialogRef = this.dialog.open(ContactFormComponent, {
             width: '600px',
-            data: {emailReceiver: this.user.email}
+            data: {emailCv: this.user.email}
         });
 
-        dialogRef.afterClosed().subscribe(result => {
-            console.log('send email');
-        });
+        dialogRef.afterClosed().subscribe();
     }
 
+    /**
+     * Get CV's data
+     */
     exportCV() {
         this.cvService.getCv(this.cv.id).subscribe(res => {
             this.downloadFile(res, 'application/json');
         })
     }
 
+    /**
+     * Download file with JSON - CV_PrenomNOM.txt
+     */
     downloadFile(data: string, type: string) {
         const blob = new Blob([JSON.stringify(data)], {type});
         const url = window.URL.createObjectURL(blob);

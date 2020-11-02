@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand navbar-light bg-secondary">
     <img class="logo" src="/assets/logo-epf.svg"/>
-    <a class="navbar-brand text-white" [routerLink]="['/']">Home</a>
-    <a class="navbar-brand text-white" [routerLink]="['/list']">User List</a>
-    <a class="navbar-brand text-white" *ngIf="userConnected()" [routerLink]="['/cv-template']">Template</a>
+    <a class="navbar-brand text-white" [routerLink]="['/']"> Home </a>
+    <a class="navbar-brand text-white" *ngIf="userConnected()" [routerLink]="['/cv-template']"> Update </a>
+    <a class="navbar-brand text-white" *ngIf="userConnected()" [routerLink]="['/cv-view', user.idCv]"> View </a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" *ngIf="userConnected()">
         <a><span class="navbar-brand text-white"> Connected as {{user.firstName}} {{user.lastName.toUpperCase()}}</span></a>
@@ -13,5 +13,3 @@
 
 
 <router-outlet></router-outlet>
-
-
