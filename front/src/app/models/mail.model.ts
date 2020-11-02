@@ -5,7 +5,7 @@ export class Mail {
     emailSender: string;
     emailReceiver: string;
     subject: string;
-    message: number;
+    message: string;
 
     constructor(mail?: Partial<Mail>) {
         defaultsDeep(this, mail);

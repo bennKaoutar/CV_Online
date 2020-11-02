@@ -42,33 +42,33 @@ export class CvViewComponent implements OnInit {
         this.route.data.subscribe((data: { cv: Cv }) => {
             this.cv = data.cv;
         });
+        // Resolver to wait for the CV's owner data
+        this.route.data.subscribe((data: { user: User }) => {
+            this.user = data.user[0];
+        });
 
         // Get the CV's owner data
-        this.userService.getUserFromCv(this.cv.id).subscribe(user => {
-            this.user = user[0];
-            // if the owner has a profile picture, then display it
-            if (this.user.idImage != null) {
-                this.imageService.getImage(this.user.idImage)
-                    .subscribe(
-                        res => {
-                            this.receivedImageData = res;
-                            this.base64Data = this.receivedImageData.pic;
-                            this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
-                        },
-                        err => console.log('Error Occured while getting the picture : ' + err)
-                    );
-            }
-            // if the owner has customs, then display them
-            if (this.user.idCustom != null) {
-                this.customService.getCustom(this.user.idCustom)
-                    .subscribe(
-                        custom => {
-                            this.bannerColor = custom.banner;
-                            this.titlesColor = custom.titles;
-                        }
-                    )
-            }
-        })
+        if (this.user.idImage != null) {
+            this.imageService.getImage(this.user.idImage)
+                .subscribe(
+                    res => {
+                        this.receivedImageData = res;
+                        this.base64Data = this.receivedImageData.pic;
+                        this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
+                    },
+                    err => console.log('Error Occured while getting the picture : ' + err)
+                );
+        }
+        // if the owner has customs, then display them
+        if (this.user.idCustom != null) {
+            this.customService.getCustom(this.user.idCustom)
+                .subscribe(
+                    custom => {
+                        this.bannerColor = custom.banner;
+                        this.titlesColor = custom.titles;
+                    }
+                )
+        }
     }
 
     /**

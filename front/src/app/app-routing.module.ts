@@ -7,6 +7,7 @@ import {CvTemplateComponent} from './pages/cv-template/cv-template.component';
 import {CvViewComponent} from './pages/cv-view/cv-view.component';
 import {CvResolver} from './resolvers/cv.resolver';
 import {CvViewResolver} from './resolvers/cv-view.resolver';
+import {UserResolver} from './resolvers/user.resolver';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
         path: 'cv-view/:id',
         component: CvViewComponent,
         resolve: {
-            cv: CvViewResolver
+            cv: CvViewResolver,
+            user: UserResolver
         }
     }];
 
