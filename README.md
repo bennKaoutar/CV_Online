@@ -9,7 +9,7 @@ Ce projet utilise :
 * DockerToolbox : v19.03.1
 * OpenJDK : 11
 
-## Deployment
+## Déploiement
 1. Cloner le projet en utilisant la commande :  
 `git clone https://github.com/bennKaoutar/CV_Online.git`
 2. Exécuter votre DB mysql, si vous avez un terminal Docker rentrez la commande suivante :  
@@ -27,7 +27,7 @@ Dans le dossier **front** :
 Paramétrer les différents champs avec les informations du fichier de configuration : (src/main/resources/application.properties).
 Lancer les scripts présents dans le dossier initdb.
 
-## Fonctionnalies
+## Fonctionnalités
 
 Implémentation de 2 sections sur le site :
 * Section Publique 
@@ -44,7 +44,7 @@ Implémentation de 2 sections sur le site :
 
 Le système d'authentification et de création de compte sont sécurisés par l'algorithme PBKDF2.
 
-## Authors
+## Auteurs
 Kaoutar BENNADI, Melina MVOGO, Cecile VANHELLEPUTTE
 
 
